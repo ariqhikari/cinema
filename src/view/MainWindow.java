@@ -5,16 +5,23 @@
  */
 package view;
 
+import controller.MainWindowController;
+import javax.swing.JPanel;
+
 /**
  *
  * @author ariqhikari
  */
-public class LoginPage extends javax.swing.JFrame {
+public class MainWindow extends javax.swing.JFrame {
+    MainWindowController windowController;
 
     /**
-     * Creates new form LoginPage
+     * Creates new form MainFrame
      */
-    public LoginPage() {
+    public MainWindow() {
+        windowController = new MainWindowController();
+        windowController.setBerandaPage(new BerandaPage());
+        
         initComponents();
     }
 
@@ -27,7 +34,8 @@ public class LoginPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel = new javax.swing.JPanel();
+        panelMain = new javax.swing.JPanel();
+        panelLogin = new javax.swing.JPanel();
         jLabelLogin = new javax.swing.JLabel();
         gradientUsername = new elements.Gradient();
         txtUsername = new elements.TextField();
@@ -42,15 +50,20 @@ public class LoginPage extends javax.swing.JFrame {
         jLabelRectangle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(new java.awt.CardLayout());
 
-        mainPanel.setBackground(new java.awt.Color(0, 25, 83));
-        mainPanel.setMinimumSize(new java.awt.Dimension(500, 300));
-        mainPanel.setPreferredSize(new java.awt.Dimension(1200, 800));
-        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelMain.setLayout(new java.awt.CardLayout());
+
+        panelLogin.setBackground(new java.awt.Color(0, 25, 83));
+        panelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Login.png"))); // NOI18N
-        mainPanel.add(jLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
+        jLabelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelLoginMouseClicked(evt);
+            }
+        });
+        panelLogin.add(jLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
 
         gradientUsername.setkEndColor(new java.awt.Color(141, 225, 243));
         gradientUsername.setkStartColor(new java.awt.Color(109, 218, 247));
@@ -59,7 +72,7 @@ public class LoginPage extends javax.swing.JFrame {
         txtUsername.setPreferredSize(new java.awt.Dimension(310, 57));
         gradientUsername.add(txtUsername, "card2");
 
-        mainPanel.add(gradientUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
+        panelLogin.add(gradientUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
 
         gradientPassword.setkEndColor(new java.awt.Color(141, 225, 243));
         gradientPassword.setkStartColor(new java.awt.Color(109, 218, 247));
@@ -68,43 +81,42 @@ public class LoginPage extends javax.swing.JFrame {
         txtPassword.setPreferredSize(new java.awt.Dimension(310, 57));
         gradientPassword.add(txtPassword, "card2");
 
-        mainPanel.add(gradientPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
+        panelLogin.add(gradientPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
 
         jLabelPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Password.png"))); // NOI18N
-        mainPanel.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
+        panelLogin.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
 
         jLabelUsername.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Username.png"))); // NOI18N
-        mainPanel.add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
+        panelLogin.add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
 
         jLabelDescription.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/description.png"))); // NOI18N
-        mainPanel.add(jLabelDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
+        panelLogin.add(jLabelDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, -1, -1));
 
         jLabelTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/FIVE CINEMA.png"))); // NOI18N
-        mainPanel.add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
+        panelLogin.add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, -1, -1));
 
         jLabelLogo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.png"))); // NOI18N
-        mainPanel.add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        panelLogin.add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
         jLabelBg.setBackground(new java.awt.Color(0, 25, 83));
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-login.png"))); // NOI18N
-        mainPanel.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelLogin.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabelRectangle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/rectangle-login.png"))); // NOI18N
-        mainPanel.add(jLabelRectangle, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
+        panelLogin.add(jLabelRectangle, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, -1, -1));
 
-        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1200, 800));
+        panelMain.add(panelLogin, "card2");
+
+        getContentPane().add(panelMain, "card3");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+    private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+        windowController.tampilHalamanBeranda(this);
+    }//GEN-LAST:event_jLabelLoginMouseClicked
 
     /**
      * @param args the command line arguments
@@ -123,22 +135,33 @@ public class LoginPage extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LoginPage().setVisible(true);
+                new MainWindow().setVisible(true);
             }
         });
+    }
+
+    public JPanel getPanelLogin() {
+        return panelLogin;
+    }
+
+    public JPanel getPanelMain() {
+        return panelMain;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -152,7 +175,8 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRectangle;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelUsername;
-    private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel panelLogin;
+    private javax.swing.JPanel panelMain;
     private elements.TextField txtPassword;
     private elements.TextField txtUsername;
     // End of variables declaration//GEN-END:variables

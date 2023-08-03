@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 import service.MovieDao;
+import view.MainWindow;
 import view.MovieView;
 
 /**
@@ -42,17 +43,8 @@ public class Main {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                try {
-                    MovieView view = new MovieView();
-                    view.loadDatabase();
-                    view.setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (MovieException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                MainWindow view = new MainWindow();
+                view.setVisible(true);
             }
         });
     }
