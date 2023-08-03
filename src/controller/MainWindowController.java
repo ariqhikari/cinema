@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import view.BerandaPage;
 import view.MainWindow;
+import view.SeatPage;
 
 /**
  *
@@ -19,10 +20,17 @@ import view.MainWindow;
  */
 public class MainWindowController {
     private BerandaPage berandaPage;
+    private SeatPage seatPage;
 
     public void setBerandaPage(BerandaPage berandaPage) {
         this.berandaPage = berandaPage;
     }
+
+    public void setSeatPage(SeatPage seatPage) {
+        this.seatPage = seatPage;
+    }
+    
+    
     
     public void tampilHalamanLogin(MainWindow window) {
         // membersihkan main panel
@@ -56,5 +64,17 @@ public class MainWindowController {
         } catch (IOException ex) {
             
         }
+    }
+     
+     public void tampilHalamanKursi(MainWindow window)  {
+        // membersihkan main panel
+        window.getPanelMain().removeAll();
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
+        
+        // tambah panel baru
+        window.getPanelMain().add(seatPage.getPanelSeat());
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
     }
 }
