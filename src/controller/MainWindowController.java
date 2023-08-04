@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import view.BerandaPage;
 import view.DetailMoviePage;
 import view.MainWindow;
+import view.SeatPage;
 
 /**
  *
@@ -21,6 +22,7 @@ import view.MainWindow;
 public class MainWindowController {
     private BerandaPage berandaPage;
     private DetailMoviePage detailMoviePage;
+    private SeatPage seatPage;
 
     public void setBerandaPage(BerandaPage berandaPage) {
         this.berandaPage = berandaPage;
@@ -30,6 +32,10 @@ public class MainWindowController {
         this.detailMoviePage = detailMoviePage;
     }
     
+    public void setSeatPage(SeatPage seatPage) {
+        this.seatPage = seatPage;
+    }
+      
     public void tampilHalamanLogin(MainWindow window) {
         // membersihkan main panel
         window.getPanelMain().removeAll();
@@ -60,7 +66,7 @@ public class MainWindowController {
         }
     }
     
-    public void tampilHalamanDetailMovie(MainWindow window)  {
+      public void tampilHalamanDetailMovie(MainWindow window)  {
         // membersihkan main panel
         window.getPanelMain().removeAll();
         window.getPanelMain().repaint();
@@ -68,6 +74,18 @@ public class MainWindowController {
         
         // tambah panel baru
         window.getPanelMain().add(detailMoviePage.getPanelDetailMovie());
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
+    }
+      
+        public void tampilHalamanKursi(MainWindow window)  {
+        // membersihkan main panel
+        window.getPanelMain().removeAll();
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
+        
+        // tambah panel baru
+        window.getPanelMain().add(seatPage.getPanelSeat());
         window.getPanelMain().repaint();
         window.getPanelMain().revalidate();
     }

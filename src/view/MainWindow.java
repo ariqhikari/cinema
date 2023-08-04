@@ -22,6 +22,7 @@ public class MainWindow extends javax.swing.JFrame {
         windowController = new MainWindowController();
         windowController.setBerandaPage(new BerandaPage());
         windowController.setDetailMoviePage(new DetailMoviePage());
+        windowController.setSeatPage(new SeatPage());
         
         initComponents();
     }
@@ -116,7 +117,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
         // TODO add your handling code here:
-        windowController.tampilHalamanBeranda(this);
+        windowController.tampilHalamanKursi(this);
     }//GEN-LAST:event_jLabelLoginMouseClicked
 
     /**
