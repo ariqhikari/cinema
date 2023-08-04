@@ -21,6 +21,7 @@ public class MainWindow extends javax.swing.JFrame {
     public MainWindow() {
         windowController = new MainWindowController();
         windowController.setBerandaPage(new BerandaPage());
+        windowController.setDetailMoviePage(new DetailMoviePage());
         
         initComponents();
     }

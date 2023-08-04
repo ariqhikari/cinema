@@ -57,7 +57,7 @@ public class BerandaPage extends javax.swing.JPanel {
     private void initComponents() {
 
         panelBeranda = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPanelMovie = new javax.swing.JScrollPane();
         panelMovie = new javax.swing.JPanel();
         jLabelPoster = new javax.swing.JLabel();
         faqBtn = new javax.swing.JLabel();
@@ -72,6 +72,7 @@ public class BerandaPage extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
+        panelBeranda.setPreferredSize(new java.awt.Dimension(1200, 800));
         panelBeranda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelMovie.setPreferredSize(new java.awt.Dimension(100, 806));
@@ -87,9 +88,9 @@ public class BerandaPage extends javax.swing.JPanel {
             .addGap(0, 806, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(panelMovie);
+        jScrollPanelMovie.setViewportView(panelMovie);
 
-        panelBeranda.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 1120, 340));
+        panelBeranda.add(jScrollPanelMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 1120, 340));
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster.jpeg"))); // NOI18N
         panelBeranda.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
@@ -130,6 +131,8 @@ public class BerandaPage extends javax.swing.JPanel {
           
         panelMovie.setLayout(new GridLayout(0, 4));        
         panelMovie.setPreferredSize(new Dimension(0, 2500));
+        panelMovie.setOpaque(false);
+        jScrollPanelMovie.setOpaque(false);
         
 //        for (int i = 1; i <= movies.size()-1; i++) {
 //            panelMovie.add(new JButton(movies.get(i).getTitle()));
@@ -147,7 +150,7 @@ public class BerandaPage extends javax.swing.JPanel {
             cardPanel.setBorder(BorderFactory.createEmptyBorder());
             cardPanel.setLayout(null);
             cardPanel.setSize(250, 400);
-            cardPanel.setBackground(Color.decode("#95ABE5"));
+//            cardPanel.setBackground(Color.decode("#95ABE5"));
 
             JLabel poster = new JLabel();
             BufferedImage icon = ImageIO.read(new URL(movies.get(i).getPoster()));
@@ -214,7 +217,7 @@ public class BerandaPage extends javax.swing.JPanel {
     private javax.swing.JLabel faqBtn;
     private javax.swing.JLabel homeBtn;
     private javax.swing.JLabel jLabelPoster;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPanelMovie;
     private javax.swing.JLabel judulFrame;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel panelBeranda;
