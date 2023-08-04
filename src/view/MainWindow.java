@@ -36,7 +36,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         panelMain = new javax.swing.JPanel();
         panelLogin = new javax.swing.JPanel();
-        jLabelLogin = new javax.swing.JLabel();
         gradientUsername = new elements.Gradient();
         txtUsername = new elements.TextField();
         gradientPassword = new elements.Gradient();
@@ -46,6 +45,8 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelDescription = new javax.swing.JLabel();
         jLabelTitle = new javax.swing.JLabel();
         jLabelLogo = new javax.swing.JLabel();
+        panelRound1 = new elements.PanelRound();
+        jLabelLogin = new javax.swing.JLabel();
         jLabelBg = new javax.swing.JLabel();
         jLabelRectangle = new javax.swing.JLabel();
 
@@ -56,14 +57,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         panelLogin.setBackground(new java.awt.Color(0, 25, 83));
         panelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Login.png"))); // NOI18N
-        jLabelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelLoginMouseClicked(evt);
-            }
-        });
-        panelLogin.add(jLabelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 530, -1, -1));
 
         gradientUsername.setkEndColor(new java.awt.Color(141, 225, 243));
         gradientUsername.setkStartColor(new java.awt.Color(109, 218, 247));
@@ -98,6 +91,23 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelLogo.setBackground(new java.awt.Color(255, 255, 255));
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.png"))); // NOI18N
         panelLogin.add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        panelRound1.setBackground(new java.awt.Color(37, 61, 114));
+        panelRound1.setRoundBottomLeft(40);
+        panelRound1.setRoundBottomRight(40);
+        panelRound1.setRoundTopLeft(40);
+        panelRound1.setRoundTopRight(40);
+        panelRound1.setLayout(new java.awt.GridBagLayout());
+
+        jLabelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Login.png"))); // NOI18N
+        jLabelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelLoginMouseClicked(evt);
+            }
+        });
+        panelRound1.add(jLabelLogin, new java.awt.GridBagConstraints());
+
+        panelLogin.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 290, 71));
 
         jLabelBg.setBackground(new java.awt.Color(0, 25, 83));
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-login.png"))); // NOI18N
@@ -177,6 +187,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelUsername;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelMain;
+    private elements.PanelRound panelRound1;
     private elements.TextField txtPassword;
     private elements.TextField txtUsername;
     // End of variables declaration//GEN-END:variables

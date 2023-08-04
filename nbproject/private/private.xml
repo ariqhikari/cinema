@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/ariqhikari/Documents/Tugas%20Kuliah/PBO/Tubes/Cinema/src/view/BerandaPage.java</file>
-            <file>file:/Users/ariqhikari/Documents/Tugas%20Kuliah/PBO/Tubes/Cinema/src/view/MainWindow.java</file>
-            <file>file:/Users/ariqhikari/Documents/Tugas%20Kuliah/PBO/Tubes/Cinema/src/view/MovieView.java</file>
-            <file>file:/Users/ariqhikari/Documents/Tugas%20Kuliah/PBO/Tubes/Cinema/src/controller/MainWindowController.java</file>
+            <file>file:/C:/Users/erwin/OneDrive/Desktop/tubespbo/cinema/src/database/CinemaDB.java</file>
+            <file>file:/C:/Users/erwin/OneDrive/Desktop/tubespbo/cinema/src/impl/MovieDaoImpl.java</file>
         </group>
     </open-files>
 </project-private>

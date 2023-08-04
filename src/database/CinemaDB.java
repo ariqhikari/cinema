@@ -1,8 +1,10 @@
 package database;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import com.mysql.jdbc.Connection;
+
+//import com.mysql.cj.jdbc.MysqlDataSource;
+import com.mysql.cj.jdbc.MysqlDataSource;
 import impl.MovieDaoImpl;
+import java.sql.Connection;
 import java.sql.SQLException;
 import service.MovieDao;
 
@@ -20,9 +22,9 @@ public class CinemaDB {
             MysqlDataSource dataSource = new MysqlDataSource();
             
             // set nilai URL, username, dan password dari database
-            dataSource.setURL("jdbc:mysql://localhost:8889/cinema");
+            dataSource.setURL("jdbc:mysql://localhost:3306/cinema2");
             dataSource.setUser("root");
-            dataSource.setPassword("root");
+            dataSource.setPassword("");
             
             // isi atribut connection
             connection = (Connection) dataSource.getConnection();
