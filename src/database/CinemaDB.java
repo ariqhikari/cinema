@@ -1,7 +1,10 @@
 package database;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
-import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource; //untuk mysql neatbeans 8.2
+import com.mysql.jdbc.Connection; //untuk mysql neatbeans 8.2
+
+//import com.mysql.cj.jdbc.MysqlDataSource; //untuk mysql yang terpisah
+//import java.sql.Connection; //untuk mysql yang terpisah
 import impl.MovieDaoImpl;
 import impl.ShowtimeDaoImpl;
 import impl.UserDaoImpl;

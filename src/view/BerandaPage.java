@@ -6,6 +6,7 @@
 package view;
 
 import database.CinemaDB;
+import elements.ScrollBarCustom;
 import entity.Movie;
 import exception.MovieException;
 import java.awt.AlphaComposite;
@@ -49,6 +50,7 @@ public class BerandaPage extends javax.swing.JPanel {
     public BerandaPage(MainWindow window) {
         this.window = window;
         initComponents();
+        jScrollMovie.setVerticalScrollBar(new ScrollBarCustom());
     }
 
     /**
@@ -79,13 +81,15 @@ public class BerandaPage extends javax.swing.JPanel {
         panelBeranda.setPreferredSize(new java.awt.Dimension(1200, 800));
         panelBeranda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollMovie.setBorder(null);
+
         panelMovie.setPreferredSize(new java.awt.Dimension(100, 806));
 
         javax.swing.GroupLayout panelMovieLayout = new javax.swing.GroupLayout(panelMovie);
         panelMovie.setLayout(panelMovieLayout);
         panelMovieLayout.setHorizontalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1101, Short.MAX_VALUE)
+            .addGap(0, 1110, Short.MAX_VALUE)
         );
         panelMovieLayout.setVerticalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

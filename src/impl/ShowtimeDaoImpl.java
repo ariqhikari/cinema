@@ -8,9 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
 import java.time.LocalTime;
-import java.util.Date;
-import java.util.TimeZone;
-import org.json.JSONArray;
 import org.json.JSONObject;
 import service.ShowtimeDao;
 
