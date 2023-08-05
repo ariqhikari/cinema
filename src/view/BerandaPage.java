@@ -6,6 +6,7 @@
 package view;
 
 import database.CinemaDB;
+import elements.ScrollBarCustom;
 import entity.Movie;
 import exception.MovieException;
 import java.awt.AlphaComposite;
@@ -45,6 +46,7 @@ public class BerandaPage extends javax.swing.JPanel {
      */
     public BerandaPage() {
         initComponents();
+        jScrollMovie.setVerticalScrollBar(new ScrollBarCustom());
     }
 
     /**
@@ -57,7 +59,7 @@ public class BerandaPage extends javax.swing.JPanel {
     private void initComponents() {
 
         panelBeranda = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollMovie = new javax.swing.JScrollPane();
         panelMovie = new javax.swing.JPanel();
         jLabelPoster = new javax.swing.JLabel();
         faqBtn = new javax.swing.JLabel();
@@ -74,22 +76,24 @@ public class BerandaPage extends javax.swing.JPanel {
 
         panelBeranda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollMovie.setBorder(null);
+
         panelMovie.setPreferredSize(new java.awt.Dimension(100, 806));
 
         javax.swing.GroupLayout panelMovieLayout = new javax.swing.GroupLayout(panelMovie);
         panelMovie.setLayout(panelMovieLayout);
         panelMovieLayout.setHorizontalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1101, Short.MAX_VALUE)
+            .addGap(0, 1110, Short.MAX_VALUE)
         );
         panelMovieLayout.setVerticalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 806, Short.MAX_VALUE)
         );
 
-        jScrollPane1.setViewportView(panelMovie);
+        jScrollMovie.setViewportView(panelMovie);
 
-        panelBeranda.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 1120, 340));
+        panelBeranda.add(jScrollMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 1120, 340));
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster.jpeg"))); // NOI18N
         panelBeranda.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
@@ -214,7 +218,7 @@ public class BerandaPage extends javax.swing.JPanel {
     private javax.swing.JLabel faqBtn;
     private javax.swing.JLabel homeBtn;
     private javax.swing.JLabel jLabelPoster;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollMovie;
     private javax.swing.JLabel judulFrame;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel panelBeranda;
