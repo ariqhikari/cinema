@@ -34,6 +34,7 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import service.MovieDao;
 
 /**
@@ -50,8 +51,17 @@ public class BerandaPage extends javax.swing.JPanel {
     public BerandaPage(MainWindow window) {
         this.window = window;
         initComponents();
-        jScrollMovie.setVerticalScrollBar(new ScrollBarCustom());
+        jScrollPanelMovie.setVerticalScrollBar(new ScrollBarCustom());
     }
+
+    public JScrollPane getjScrollPanelMovie() {
+        return jScrollPanelMovie;
+    }
+
+    public JPanel getPanelMovie() {
+        return panelMovie;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,7 +91,7 @@ public class BerandaPage extends javax.swing.JPanel {
         panelBeranda.setPreferredSize(new java.awt.Dimension(1200, 800));
         panelBeranda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollMovie.setBorder(null);
+        jScrollPanelMovie.setBorder(null);
 
         panelMovie.setPreferredSize(new java.awt.Dimension(100, 806));
 
@@ -89,7 +99,7 @@ public class BerandaPage extends javax.swing.JPanel {
         panelMovie.setLayout(panelMovieLayout);
         panelMovieLayout.setHorizontalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1110, Short.MAX_VALUE)
+            .addGap(0, 1094, Short.MAX_VALUE)
         );
         panelMovieLayout.setVerticalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,9 +108,13 @@ public class BerandaPage extends javax.swing.JPanel {
 
         jScrollPanelMovie.setViewportView(panelMovie);
         panelMovie.setBackground(new java.awt.Color(0,0,0,1));
+        panelMovie.setOpaque(false);
 
         panelBeranda.add(jScrollPanelMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 1120, 340));
         jScrollPanelMovie.setBackground(new java.awt.Color(0,0,0,1));
+        jScrollPanelMovie.getViewport().setOpaque(false);
+        jScrollPanelMovie.setBorder(BorderFactory.createEmptyBorder());
+        jScrollPanelMovie.setOpaque(false);
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster.jpeg"))); // NOI18N
         panelBeranda.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));

@@ -3,6 +3,7 @@ package view;
 import database.CinemaDB;
 import entity.Showtime;
 import exception.ShowtimeException;
+import java.awt.event.MouseEvent;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import javax.swing.JPanel;
@@ -15,7 +16,6 @@ public class SeatPage extends javax.swing.JPanel {
      */
     public SeatPage() {
         initComponents();
-        txtTotal.setBackground(new java.awt.Color(0,0,0,1));
     }
 
     public JPanel getPanelSeat() {
@@ -88,6 +88,9 @@ public class SeatPage extends javax.swing.JPanel {
         availableSeat = new javax.swing.JLabel();
         reservedSeat = new javax.swing.JLabel();
         selectedSeat = new javax.swing.JLabel();
+        seat = new javax.swing.JLabel();
+        tiketMerah = new javax.swing.JLabel();
+        txtSeat = new javax.swing.JTextField();
         total = new javax.swing.JLabel();
         keranjangMerah = new javax.swing.JLabel();
         txtTotal = new javax.swing.JTextField();
@@ -241,9 +244,19 @@ public class SeatPage extends javax.swing.JPanel {
         panelSeat.add(seatA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 570, -1, -1));
 
         seatA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                seatA2MouseClicked(evt);
+            }
+        });
         panelSeat.add(seatA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, -1, -1));
 
         seatA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                seatA1MouseClicked(evt);
+            }
+        });
         panelSeat.add(seatA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 570, -1, -1));
 
         screen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Screen.png"))); // NOI18N
@@ -261,17 +274,31 @@ public class SeatPage extends javax.swing.JPanel {
         selectedSeat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/status-selected-seat.png"))); // NOI18N
         panelSeat.add(selectedSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 640, -1, -1));
 
+        seat.setBackground(new java.awt.Color(255, 255, 255));
+        seat.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        seat.setForeground(new java.awt.Color(251, 65, 65));
+        seat.setText("Seat");
+        panelSeat.add(seat, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 680, 60, 30));
+
+        tiketMerah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/TicketRed.png"))); // NOI18N
+        panelSeat.add(tiketMerah, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 670, -1, -1));
+
+        txtSeat.setBorder(null);
+        panelSeat.add(txtSeat, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 680, 90, 30));
+        txtSeat.setBackground(new java.awt.Color(0,0,0,1));
+
         total.setBackground(new java.awt.Color(255, 255, 255));
         total.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         total.setForeground(new java.awt.Color(251, 65, 65));
-        total.setText("Total:");
-        panelSeat.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 710, 60, 30));
+        total.setText("Total");
+        panelSeat.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 730, 60, 30));
 
         keranjangMerah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Buy.png"))); // NOI18N
-        panelSeat.add(keranjangMerah, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 700, -1, -1));
+        panelSeat.add(keranjangMerah, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 720, -1, -1));
 
         txtTotal.setBorder(null);
-        panelSeat.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 710, 90, 30));
+        panelSeat.add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 730, 90, 30));
+        txtTotal.setBackground(new java.awt.Color(0,0,0,1));
 
         buyBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Buy button.png"))); // NOI18N
         panelSeat.add(buyBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 650, -1, -1));
@@ -286,7 +313,16 @@ public class SeatPage extends javax.swing.JPanel {
         add(panelSeat, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-      public void loadDatabase(int movieId, LocalTime time) throws SQLException, ShowtimeException {
+    private void seatA2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_seatA2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seatA2MouseClicked
+
+    private void seatA1MouseClicked(java.awt.event.MouseEvent evt) {                                    
+        // TODO add your handling code here:
+    }                                   
+
+    
+    public void loadDatabase(int movieId, LocalTime time) throws SQLException, ShowtimeException {
         ShowtimeDao dao = CinemaDB.getShowtime();
         Showtime showtime = dao.getShowtime(movieId, time);
     }
@@ -300,6 +336,7 @@ public class SeatPage extends javax.swing.JPanel {
     private javax.swing.JPanel panelSeat;
     private javax.swing.JLabel reservedSeat;
     private javax.swing.JLabel screen;
+    private javax.swing.JLabel seat;
     private javax.swing.JLabel seatA1;
     private javax.swing.JLabel seatA2;
     private javax.swing.JLabel seatA3;
@@ -350,8 +387,10 @@ public class SeatPage extends javax.swing.JPanel {
     private javax.swing.JLabel seatF5;
     private javax.swing.JLabel seatF6;
     private javax.swing.JLabel selectedSeat;
+    private javax.swing.JLabel tiketMerah;
     private javax.swing.JLabel title;
     private javax.swing.JLabel total;
+    private javax.swing.JTextField txtSeat;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }
