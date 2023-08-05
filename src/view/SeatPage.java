@@ -1,6 +1,12 @@
 package view;
 
+import database.CinemaDB;
+import entity.Showtime;
+import exception.ShowtimeException;
+import java.sql.SQLException;
+import java.time.LocalTime;
 import javax.swing.JPanel;
+import service.ShowtimeDao;
 
 public class SeatPage extends javax.swing.JPanel {
 
@@ -280,6 +286,10 @@ public class SeatPage extends javax.swing.JPanel {
         add(panelSeat, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+      public void loadDatabase(int movieId, LocalTime time) throws SQLException, ShowtimeException {
+        ShowtimeDao dao = CinemaDB.getShowtime();
+        Showtime showtime = dao.getShowtime(movieId, time);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel availableSeat;

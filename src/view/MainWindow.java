@@ -8,6 +8,7 @@ package view;
 import controller.MainWindowController;
 import controller.UserController;
 import event.UserListener;
+import java.awt.Cursor;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -34,7 +35,7 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
     public MainWindow() {
         windowController = new MainWindowController();
         windowController.setBerandaPage(new BerandaPage(this));
-        windowController.setDetailMoviePage(new DetailMoviePage());
+        windowController.setDetailMoviePage(new DetailMoviePage(this));
         windowController.setSeatPage(new SeatPage());
         
         initComponents();
@@ -49,6 +50,8 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         
         controller = new UserController();
         controller.setModel(model);
+        
+        panelBtnLogin.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     public JTextField getTxtPassword() {

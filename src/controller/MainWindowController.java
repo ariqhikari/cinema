@@ -1,14 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 import entity.Movie;
 import exception.MovieException;
+import exception.ShowtimeException;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import view.BerandaPage;
@@ -82,7 +79,7 @@ public class MainWindowController {
         detailMoviePage.setViewMovie();
     }
       
-        public void tampilHalamanKursi(MainWindow window)  {
+        public void tampilHalamanKursi(MainWindow window, int movieId, LocalTime time)  {
         // membersihkan main panel
         window.getPanelMain().removeAll();
         window.getPanelMain().repaint();
@@ -92,5 +89,11 @@ public class MainWindowController {
         window.getPanelMain().add(seatPage.getPanelSeat());
         window.getPanelMain().repaint();
         window.getPanelMain().revalidate();
+        
+        try {
+            seatPage.loadDatabase(movieId, time);
+        } catch (SQLException | ShowtimeException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

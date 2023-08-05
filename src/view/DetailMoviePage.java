@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -28,14 +29,22 @@ import javax.swing.JPanel;
  * @author ariqhikari
  */
 public class DetailMoviePage extends javax.swing.JPanel {
+    MainWindow window;
     DetailMovieController controller;
+    Date date;
 
     /**
      * Creates new form DetailMoviePage
+     * @param window
      */
-    public DetailMoviePage() {
+    public DetailMoviePage(MainWindow window) {
+        this.window = window;
         controller = new DetailMovieController();
+        
         initComponents();
+        
+        this.date = new Date();
+        jLabelBookingDate.setText(getDate());
     }
 
     public DetailMovieController getController() {
@@ -118,11 +127,21 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelDetailMovie.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 670, 300));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackMouseClicked(evt);
+            }
+        });
         panelDetailMovie.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
         panelBookingTime22.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBookingTime22.setPreferredSize(new java.awt.Dimension(200, 50));
         panelBookingTime22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBookingTime22MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelBookingTime22MouseExited(evt);
             }
@@ -145,8 +164,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelDetailMovie.add(panelBookingTime22, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 730, -1, -1));
 
         panelBookingTime18.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBookingTime18.setPreferredSize(new java.awt.Dimension(200, 50));
         panelBookingTime18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBookingTime18MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelBookingTime18MouseExited(evt);
             }
@@ -169,8 +192,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelDetailMovie.add(panelBookingTime18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 730, -1, -1));
 
         panelBookingTime14.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBookingTime14.setPreferredSize(new java.awt.Dimension(200, 50));
         panelBookingTime14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBookingTime14MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelBookingTime14MouseExited(evt);
             }
@@ -193,8 +220,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelDetailMovie.add(panelBookingTime14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 660, -1, -1));
 
         panelBookingTime12.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBookingTime12.setPreferredSize(new java.awt.Dimension(200, 50));
         panelBookingTime12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBookingTime12MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelBookingTime12MouseExited(evt);
             }
@@ -217,8 +248,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelDetailMovie.add(panelBookingTime12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, -1, -1));
 
         panelBookingTime10.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBookingTime10.setPreferredSize(new java.awt.Dimension(200, 50));
         panelBookingTime10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBookingTime10MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelBookingTime10MouseExited(evt);
             }
@@ -241,8 +276,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelDetailMovie.add(panelBookingTime10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 590, -1, -1));
 
         panelBookingTime8.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelBookingTime8.setPreferredSize(new java.awt.Dimension(200, 50));
         panelBookingTime8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBookingTime8MouseClicked(evt);
+            }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 panelBookingTime8MouseExited(evt);
             }
@@ -277,16 +316,17 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelBookingDate.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelBookingDate.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
-        jLabelBookingDate.setText("01 Juli 2023");
+        jLabelBookingDate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelBookingDate.setText("05 August 2023");
         jLabelBookingDate.setPreferredSize(new java.awt.Dimension(200, 50));
         jLabelBookingDate.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelBookingDateMouseClicked(evt);
             }
         });
-        panelBookingDate.add(jLabelBookingDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 130, 50));
+        panelBookingDate.add(jLabelBookingDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 190, 50));
 
-        panelDetailMovie.add(panelBookingDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, -1, -1));
+        panelDetailMovie.add(panelBookingDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 520, 250, -1));
 
         star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
         panelDetailMovie.add(star5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
@@ -399,10 +439,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
 
     private void panelBookingTime8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime8MouseExited
         // TODO add your handling code here:
+        panelBookingTime8.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelBookingTime8MouseExited
 
     private void panelBookingTime8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime8MouseEntered
         // TODO add your handling code here:
+        panelBookingTime8.setBackground(new Color(187, 180, 227));
     }//GEN-LAST:event_panelBookingTime8MouseEntered
 
     private void jLabelBookingTime10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime10MouseClicked
@@ -411,10 +453,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
 
     private void panelBookingTime10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime10MouseExited
         // TODO add your handling code here:
+        panelBookingTime10.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelBookingTime10MouseExited
 
     private void panelBookingTime10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime10MouseEntered
         // TODO add your handling code here:
+        panelBookingTime10.setBackground(new Color(187, 180, 227));
     }//GEN-LAST:event_panelBookingTime10MouseEntered
 
     private void jLabelBookingTime12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime12MouseClicked
@@ -423,10 +467,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
 
     private void panelBookingTime12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime12MouseExited
         // TODO add your handling code here:
+        panelBookingTime12.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelBookingTime12MouseExited
 
     private void panelBookingTime12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime12MouseEntered
         // TODO add your handling code here:
+        panelBookingTime12.setBackground(new Color(187, 180, 227));
     }//GEN-LAST:event_panelBookingTime12MouseEntered
 
     private void jLabelBookingTime14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime14MouseClicked
@@ -435,10 +481,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
 
     private void panelBookingTime14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime14MouseExited
         // TODO add your handling code here:
+        panelBookingTime14.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelBookingTime14MouseExited
 
     private void panelBookingTime14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime14MouseEntered
         // TODO add your handling code here:
+        panelBookingTime14.setBackground(new Color(187, 180, 227));
     }//GEN-LAST:event_panelBookingTime14MouseEntered
 
     private void jLabelBookingTime18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime18MouseClicked
@@ -447,10 +495,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
 
     private void panelBookingTime18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime18MouseExited
         // TODO add your handling code here:
+        panelBookingTime18.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelBookingTime18MouseExited
 
     private void panelBookingTime18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime18MouseEntered
         // TODO add your handling code here:
+        panelBookingTime18.setBackground(new Color(187, 180, 227));
     }//GEN-LAST:event_panelBookingTime18MouseEntered
 
     private void jLabelBookingTime22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime22MouseClicked
@@ -459,11 +509,48 @@ public class DetailMoviePage extends javax.swing.JPanel {
 
     private void panelBookingTime22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime22MouseExited
         // TODO add your handling code here:
+        panelBookingTime22.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelBookingTime22MouseExited
 
     private void panelBookingTime22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime22MouseEntered
         // TODO add your handling code here:
+        panelBookingTime22.setBackground(new Color(187, 180, 227));
     }//GEN-LAST:event_panelBookingTime22MouseEntered
+
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+        // TODO add your handling code here:
+        window.getWindowController().tampilHalamanBeranda(window);
+    }//GEN-LAST:event_btnBackMouseClicked
+
+    private void panelBookingTime8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime8MouseClicked
+        // TODO add your handling code here:
+        controller.chooseSeat(window, "08:00:00");
+    }//GEN-LAST:event_panelBookingTime8MouseClicked
+
+    private void panelBookingTime10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime10MouseClicked
+        // TODO add your handling code here:
+        controller.chooseSeat(window, "10:00:00");
+    }//GEN-LAST:event_panelBookingTime10MouseClicked
+
+    private void panelBookingTime12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime12MouseClicked
+        // TODO add your handling code here:
+        controller.chooseSeat(window, "12:00:00");
+    }//GEN-LAST:event_panelBookingTime12MouseClicked
+
+    private void panelBookingTime14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime14MouseClicked
+        // TODO add your handling code here:
+        controller.chooseSeat(window, "14:00:00");
+    }//GEN-LAST:event_panelBookingTime14MouseClicked
+
+    private void panelBookingTime18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime18MouseClicked
+        // TODO add your handling code here:
+        controller.chooseSeat(window, "18:00:00");
+    }//GEN-LAST:event_panelBookingTime18MouseClicked
+
+    private void panelBookingTime22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime22MouseClicked
+        // TODO add your handling code here:
+        controller.chooseSeat(window, "22:00:00");
+    }//GEN-LAST:event_panelBookingTime22MouseClicked
 
     public JPanel getPanelDetailMovie() {
         return panelDetailMovie;
@@ -531,6 +618,14 @@ public class DetailMoviePage extends javax.swing.JPanel {
         g2.dispose();
 
         return output;
+    }
+      
+    public String getDate() {        
+        String pattern = "dd MMMM yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String dateFormat = simpleDateFormat.format(this.date);
+        
+        return dateFormat;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

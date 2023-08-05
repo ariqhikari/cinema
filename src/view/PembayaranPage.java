@@ -8,12 +8,12 @@ package view;
  *
  * @author erwin
  */
-public class PembayaranView extends javax.swing.JPanel {
+public class PembayaranPage extends javax.swing.JPanel {
 
     /**
      * Creates new form PembayaranView
      */
-    public PembayaranView() {
+    public PembayaranPage() {
         initComponents();
     }
 
@@ -111,10 +111,7 @@ public class PembayaranView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelPrintTiket;
     private javax.swing.JLabel jLabelTotalHarga;
     private javax.swing.JLabel jLabelTunai;
-    private elements.PanelRound panelRound1;
     private elements.PanelRound panelRound2;
-    private elements.PanelRound panelRound3;
-    private elements.PanelRound panelRound4;
     private elements.PanelRound panelRound5;
     private elements.TextField textField1;
     private elements.TextField textField2;

@@ -1,6 +1,8 @@
 package controller;
 
 import entity.Movie;
+import java.time.LocalTime;
+import view.MainWindow;
 
 /**
  *
@@ -17,5 +19,7 @@ public class DetailMovieController {
         this.movie = movie;
     }
     
-    
+    public void chooseSeat(MainWindow window, String time) {
+        window.getWindowController().tampilHalamanKursi(window, this.movie.getId(), LocalTime.parse(time));
+    }
 }

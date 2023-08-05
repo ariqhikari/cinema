@@ -8,7 +8,6 @@ import java.util.List;
  * @author ariqhikari
  */
 public interface MovieDao {
-    public Movie getMovie(Integer id) throws MovieException;
     public List<Movie> selectAllMovie() throws MovieException;
 }
 
