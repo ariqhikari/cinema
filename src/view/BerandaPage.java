@@ -26,6 +26,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -176,7 +178,11 @@ public class BerandaPage extends javax.swing.JPanel {
             poster.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                      window.getWindowController().tampilHalamanDetailMovie(window, movie);
+                    try {
+                        window.getWindowController().tampilHalamanDetailMovie(window, movie);
+                    } catch (IOException ex) {
+                        Logger.getLogger(BerandaPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
                 @Override

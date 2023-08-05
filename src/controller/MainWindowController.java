@@ -67,7 +67,7 @@ public class MainWindowController {
         }
     }
     
-      public void tampilHalamanDetailMovie(MainWindow window, Movie movie)  {
+      public void tampilHalamanDetailMovie(MainWindow window, Movie movie) throws IOException  {
         // membersihkan main panel
         window.getPanelMain().removeAll();
         window.getPanelMain().repaint();
