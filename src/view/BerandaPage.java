@@ -13,11 +13,12 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.RenderingHints;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -28,10 +29,8 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
 import service.MovieDao;
 
 /**
@@ -39,11 +38,14 @@ import service.MovieDao;
  * @author ariqhikari
  */
 public class BerandaPage extends javax.swing.JPanel {
+    MainWindow window;
 
     /**
      * Creates new form BerandaPage
+     * @param window
      */
-    public BerandaPage() {
+    public BerandaPage(MainWindow window) {
+        this.window = window;
         initComponents();
     }
 
@@ -89,8 +91,10 @@ public class BerandaPage extends javax.swing.JPanel {
         );
 
         jScrollPanelMovie.setViewportView(panelMovie);
+        panelMovie.setBackground(new java.awt.Color(0,0,0,1));
 
         panelBeranda.add(jScrollPanelMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 1120, 340));
+        jScrollPanelMovie.setBackground(new java.awt.Color(0,0,0,1));
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster.jpeg"))); // NOI18N
         panelBeranda.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
@@ -130,31 +134,35 @@ public class BerandaPage extends javax.swing.JPanel {
         List<Movie> movies = dao.selectAllMovie();
           
         panelMovie.setLayout(new GridLayout(0, 4));        
-        panelMovie.setPreferredSize(new Dimension(0, 2500));
+        panelMovie.setPreferredSize(new Dimension(0, 3500));
         panelMovie.setOpaque(false);
+        panelMovie.setBackground(new java.awt.Color(0,0,0,1));
         jScrollPanelMovie.setOpaque(false);
+        jScrollPanelMovie.setBackground(new java.awt.Color(0,0,0,1));
         
 //        for (int i = 1; i <= movies.size()-1; i++) {
 //            panelMovie.add(new JButton(movies.get(i).getTitle()));
 //        }
         
         for (int i = 0; i < movies.size(); i++) {
+            Movie movie = movies.get(i);
+            
             // Grid panel
             final JPanel contentPanel = new JPanel();
             contentPanel.setLayout(new CardLayout(10, 10));
             contentPanel.setPreferredSize(new Dimension(250, 400));
-//            contentPanel.setBackground(Color.decode("#42382F"));
+            contentPanel.setBackground(new java.awt.Color(0,0,0,1));
 
             // Card Panel
             final JPanel cardPanel = new JPanel();
             cardPanel.setBorder(BorderFactory.createEmptyBorder());
             cardPanel.setLayout(null);
             cardPanel.setSize(250, 400);
-//            cardPanel.setBackground(Color.decode("#95ABE5"));
+            cardPanel.setBackground(new java.awt.Color(0,0,0,1));
 
             JLabel poster = new JLabel();
-            BufferedImage icon = ImageIO.read(new URL(movies.get(i).getPoster()));
-            BufferedImage roundedPosterImage = makeRoundedCorner(icon, 12);
+            BufferedImage icon = ImageIO.read(new URL(movie.getPoster()));
+            BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
             Image scaledPoster = roundedPosterImage.getScaledInstance(250, 400, Image.SCALE_SMOOTH);
             ImageIcon iconPoster = new ImageIcon(scaledPoster);
             poster.setPreferredSize(new Dimension(250, 400));
@@ -163,18 +171,36 @@ public class BerandaPage extends javax.swing.JPanel {
 
             poster.setIcon(iconPoster);
             poster.setBounds(0, 0, 250, 400);
+            
+            poster.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            poster.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                      window.getWindowController().tampilHalamanDetailMovie(window, movie);
+                }
 
-            // Title
-            JLabel titleLabel = new JLabel(movies.get(i).getTitle());
-            titleLabel.setForeground(Color.WHITE);
-            titleLabel.setFont(new Font("Serif", Font.PLAIN, 18));
-            titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-            titleLabel.setBounds(0, poster.getHeight() - 80, poster.getWidth(), 11);
-            cardPanel.add(titleLabel);
-            titleLabel.setVisible(true);
-            titleLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                @Override
+                public void mousePressed(MouseEvent e) {
+                   
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                   
+                }
+            });
+
             cardPanel.add(poster);
-
             contentPanel.add(cardPanel);
             panelMovie.add(contentPanel);
 

@@ -6,8 +6,17 @@ import exception.MovieException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.json.JSONArray;
 import service.MovieDao;
 
 /**
@@ -22,8 +31,8 @@ public class MovieDaoImpl implements MovieDao {
     
     private final String selectAll = "SELECT * from movies";
     
-    public MovieDaoImpl(Connection connction) {
-        this.connection = connction;
+    public MovieDaoImpl(Connection connection) {
+        this.connection = connection;
     }
 
     @Override
@@ -40,12 +49,16 @@ public class MovieDaoImpl implements MovieDao {
             Movie movie = null;
             // buat validasi untuk mengecek apakah ada record
             if(result.next()) {
-                // set hasil query ke object anggota
+                // set hasil query ke object movie
                 movie = new Movie();
                 movie.setId(result.getInt("id"));
                 movie.setTitle(result.getString("title"));
                 movie.setDescription(result.getString("description"));
-                movie.setReleaseDate(result.getString("release_date"));
+                
+//                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(result.getString("release_date"));  
+//                movie.setReleaseDate(date);
+//                System.out.println(date.toString());
+
                 movie.setDuration(result.getString("duration"));
                 movie.setPoster(result.getString("poster"));
                 movie.setRating(result.getDouble("rating"));
@@ -96,17 +109,28 @@ public class MovieDaoImpl implements MovieDao {
             Movie movie = null;
             // buat validasi untuk mengecek apakah ada record
             while(result.next()) {
-                // set hasil query ke object anggota
+                // set hasil query ke object movie
                 movie = new Movie();
                 movie.setId(result.getInt("id"));
                 movie.setTitle(result.getString("title"));
                 movie.setDescription(result.getString("description"));
-                movie.setReleaseDate(result.getString("release_date"));
+                
+                Date date = new SimpleDateFormat("yyyy-MM-dd").parse(result.getString("release_date"));  
+                movie.setReleaseDate(date);
+                 
                 movie.setDuration(result.getString("duration"));
                 movie.setPoster(result.getString("poster"));
                 movie.setRating(result.getDouble("rating"));
                 movie.setAgeRating(result.getInt("age_rating"));
-//                movie.setGenres(result.getArray("genres"));
+                movie.setPrice(result.getInt("price"));
+                
+                JSONArray jsonGenres = new JSONArray(result.getString("genres"));
+                List<String> genres = new ArrayList<>(jsonGenres.toList().size());
+                jsonGenres.toList().forEach((genre) -> {
+                    genres.add(Objects.toString(genre, null));
+                });
+                
+                movie.setGenres(genres);
                 
                 list.add(movie);
             } 
@@ -114,6 +138,12 @@ public class MovieDaoImpl implements MovieDao {
             connection.commit();
             return list;
         } catch (SQLException ex) {
+            try {
+                connection.rollback();
+            } catch (Exception e) {
+            }
+            throw new MovieException(ex.getMessage());
+        } catch (ParseException ex) {
             try {
                 connection.rollback();
             } catch (Exception e) {

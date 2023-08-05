@@ -5,6 +5,22 @@
  */
 package view;
 
+import controller.DetailMovieController;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.RenderingHints;
+import java.awt.geom.RoundRectangle2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.text.SimpleDateFormat;
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -12,12 +28,18 @@ import javax.swing.JPanel;
  * @author ariqhikari
  */
 public class DetailMoviePage extends javax.swing.JPanel {
+    DetailMovieController controller;
 
     /**
      * Creates new form DetailMoviePage
      */
     public DetailMoviePage() {
+        controller = new DetailMovieController();
         initComponents();
+    }
+
+    public DetailMovieController getController() {
+        return controller;
     }
 
     /**
@@ -30,19 +52,35 @@ public class DetailMoviePage extends javax.swing.JPanel {
     private void initComponents() {
 
         panelDetailMovie = new javax.swing.JPanel();
-        jLabelStar4 = new javax.swing.JLabel();
-        jLabelStar3 = new javax.swing.JLabel();
-        jLabelStar2 = new javax.swing.JLabel();
-        jLabelStar1 = new javax.swing.JLabel();
-        jLabelStar = new javax.swing.JLabel();
+        jScrollPane = new javax.swing.JScrollPane();
+        jTextAreaDescription = new javax.swing.JTextArea();
+        btnBack = new javax.swing.JLabel();
+        panelBookingTime22 = new javax.swing.JPanel();
+        jLabelBookingTime22 = new javax.swing.JLabel();
+        panelBookingTime18 = new javax.swing.JPanel();
+        jLabelBookingTime18 = new javax.swing.JLabel();
+        panelBookingTime14 = new javax.swing.JPanel();
+        jLabelBookingTime14 = new javax.swing.JLabel();
+        panelBookingTime12 = new javax.swing.JPanel();
+        jLabelBookingTime12 = new javax.swing.JLabel();
+        panelBookingTime10 = new javax.swing.JPanel();
+        jLabelBookingTime10 = new javax.swing.JLabel();
+        panelBookingTime8 = new javax.swing.JPanel();
+        jLabelBookingTime8 = new javax.swing.JLabel();
+        panelBookingDate = new javax.swing.JPanel();
+        jLabelBookingDate = new javax.swing.JLabel();
+        star5 = new javax.swing.JLabel();
+        star4 = new javax.swing.JLabel();
+        star3 = new javax.swing.JLabel();
+        star2 = new javax.swing.JLabel();
+        star1 = new javax.swing.JLabel();
         jLabelRating = new javax.swing.JLabel();
-        jLabelDescription = new javax.swing.JLabel();
         jLabelLine = new javax.swing.JLabel();
         jLabelAge = new javax.swing.JLabel();
         bgAge = new javax.swing.JLabel();
         labelAge = new javax.swing.JLabel();
-        jLabelSutradara = new javax.swing.JLabel();
-        labelSutradara = new javax.swing.JLabel();
+        jLabelPrice = new javax.swing.JLabel();
+        labelPrice = new javax.swing.JLabel();
         labelDurasi = new javax.swing.JLabel();
         jLabelGenre1 = new javax.swing.JLabel();
         labelGenre = new javax.swing.JLabel();
@@ -58,57 +96,243 @@ public class DetailMoviePage extends javax.swing.JPanel {
 
         panelDetailMovie.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelStar4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
-        panelDetailMovie.add(jLabelStar4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
+        jScrollPane.setBorder(null);
 
-        jLabelStar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png"))); // NOI18N
-        panelDetailMovie.add(jLabelStar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, -1, -1));
+        jTextAreaDescription.setEditable(false);
+        jTextAreaDescription.setColumns(20);
+        jTextAreaDescription.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jTextAreaDescription.setForeground(new java.awt.Color(255, 255, 255));
+        jTextAreaDescription.setLineWrap(true);
+        jTextAreaDescription.setRows(5);
+        jTextAreaDescription.setWrapStyleWord(true);
+        jTextAreaDescription.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextAreaDescription.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        jTextAreaDescription.setSelectedTextColor(new java.awt.Color(255, 255, 255));
+        jTextAreaDescription.setSelectionColor(new java.awt.Color(255, 255, 255));
+        jScrollPane.setViewportView(jTextAreaDescription);
+        jTextAreaDescription.setBackground(new java.awt.Color(0,0,0,1));
+        jTextAreaDescription.setHighlighter(null);
+        jTextAreaDescription.setEditable(false);
+        jTextAreaDescription.setFocusable(false);
 
-        jLabelStar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png"))); // NOI18N
-        panelDetailMovie.add(jLabelStar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
+        panelDetailMovie.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 670, 300));
 
-        jLabelStar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png"))); // NOI18N
-        panelDetailMovie.add(jLabelStar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
+        panelDetailMovie.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
-        jLabelStar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png"))); // NOI18N
-        panelDetailMovie.add(jLabelStar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, -1));
+        panelBookingTime22.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime22.setPreferredSize(new java.awt.Dimension(200, 50));
+        panelBookingTime22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBookingTime22MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBookingTime22MouseEntered(evt);
+            }
+        });
+        panelBookingTime22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBookingTime22.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabelBookingTime22.setText("22:00");
+        jLabelBookingTime22.setPreferredSize(new java.awt.Dimension(200, 50));
+        jLabelBookingTime22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBookingTime22MouseClicked(evt);
+            }
+        });
+        panelBookingTime22.add(jLabelBookingTime22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 70, 50));
+
+        panelDetailMovie.add(panelBookingTime22, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 730, -1, -1));
+
+        panelBookingTime18.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime18.setPreferredSize(new java.awt.Dimension(200, 50));
+        panelBookingTime18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBookingTime18MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBookingTime18MouseEntered(evt);
+            }
+        });
+        panelBookingTime18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBookingTime18.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabelBookingTime18.setText("18:00");
+        jLabelBookingTime18.setPreferredSize(new java.awt.Dimension(200, 50));
+        jLabelBookingTime18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBookingTime18MouseClicked(evt);
+            }
+        });
+        panelBookingTime18.add(jLabelBookingTime18, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 70, 50));
+
+        panelDetailMovie.add(panelBookingTime18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 730, -1, -1));
+
+        panelBookingTime14.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime14.setPreferredSize(new java.awt.Dimension(200, 50));
+        panelBookingTime14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBookingTime14MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBookingTime14MouseEntered(evt);
+            }
+        });
+        panelBookingTime14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBookingTime14.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabelBookingTime14.setText("14:00");
+        jLabelBookingTime14.setPreferredSize(new java.awt.Dimension(200, 50));
+        jLabelBookingTime14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBookingTime14MouseClicked(evt);
+            }
+        });
+        panelBookingTime14.add(jLabelBookingTime14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 70, 50));
+
+        panelDetailMovie.add(panelBookingTime14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 660, -1, -1));
+
+        panelBookingTime12.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime12.setPreferredSize(new java.awt.Dimension(200, 50));
+        panelBookingTime12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBookingTime12MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBookingTime12MouseEntered(evt);
+            }
+        });
+        panelBookingTime12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBookingTime12.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabelBookingTime12.setText("12:00");
+        jLabelBookingTime12.setPreferredSize(new java.awt.Dimension(200, 50));
+        jLabelBookingTime12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBookingTime12MouseClicked(evt);
+            }
+        });
+        panelBookingTime12.add(jLabelBookingTime12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 70, 50));
+
+        panelDetailMovie.add(panelBookingTime12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 660, -1, -1));
+
+        panelBookingTime10.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime10.setPreferredSize(new java.awt.Dimension(200, 50));
+        panelBookingTime10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBookingTime10MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBookingTime10MouseEntered(evt);
+            }
+        });
+        panelBookingTime10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBookingTime10.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabelBookingTime10.setText("10:00");
+        jLabelBookingTime10.setPreferredSize(new java.awt.Dimension(200, 50));
+        jLabelBookingTime10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBookingTime10MouseClicked(evt);
+            }
+        });
+        panelBookingTime10.add(jLabelBookingTime10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 70, 50));
+
+        panelDetailMovie.add(panelBookingTime10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 590, -1, -1));
+
+        panelBookingTime8.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingTime8.setPreferredSize(new java.awt.Dimension(200, 50));
+        panelBookingTime8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBookingTime8MouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBookingTime8MouseEntered(evt);
+            }
+        });
+        panelBookingTime8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBookingTime8.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        jLabelBookingTime8.setText("08:00");
+        jLabelBookingTime8.setPreferredSize(new java.awt.Dimension(200, 50));
+        jLabelBookingTime8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBookingTime8MouseClicked(evt);
+            }
+        });
+        panelBookingTime8.add(jLabelBookingTime8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 70, 50));
+
+        panelDetailMovie.add(panelBookingTime8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, -1, -1));
+
+        panelBookingDate.setBackground(new java.awt.Color(255, 255, 255));
+        panelBookingDate.setPreferredSize(new java.awt.Dimension(200, 50));
+        panelBookingDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelBookingDateMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelBookingDateMouseEntered(evt);
+            }
+        });
+        panelBookingDate.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelBookingDate.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        jLabelBookingDate.setText("01 Juli 2023");
+        jLabelBookingDate.setPreferredSize(new java.awt.Dimension(200, 50));
+        jLabelBookingDate.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelBookingDateMouseClicked(evt);
+            }
+        });
+        panelBookingDate.add(jLabelBookingDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 130, 50));
+
+        panelDetailMovie.add(panelBookingDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, -1, -1));
+
+        star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
+        panelDetailMovie.add(star5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
+
+        star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
+        panelDetailMovie.add(star4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, -1, -1));
+
+        star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
+        panelDetailMovie.add(star3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
+
+        star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
+        panelDetailMovie.add(star2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 470, -1, -1));
+
+        star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
+        panelDetailMovie.add(star1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 470, -1, -1));
 
         jLabelRating.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         jLabelRating.setForeground(new java.awt.Color(252, 255, 86));
-        jLabelRating.setText("8.8");
+        jLabelRating.setText("4.6");
         panelDetailMovie.add(jLabelRating, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
-
-        jLabelDescription.setFont(new java.awt.Font("SansSerif", 0, 22)); // NOI18N
-        jLabelDescription.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelDescription.setText("Description Movie");
-        panelDetailMovie.add(jLabelDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, -1, -1));
-        jLabelDescription.setText("<HTML>Berkisah tentang kehidupan para Barbie yang memiliki karakter berbeda-beda. Semua perempuan dipanggil Barbie dan laki-laki dipanggil Ken, tetapi mereka dapat saling mengenal.</HTML>");
 
         jLabelLine.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/line-description.png"))); // NOI18N
         panelDetailMovie.add(jLabelLine, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, -1, 10));
 
         jLabelAge.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabelAge.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelAge.setText("R 13+");
-        panelDetailMovie.add(jLabelAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, -1, -1));
+        jLabelAge.setText("13+");
+        panelDetailMovie.add(jLabelAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, -1, -1));
 
         bgAge.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-rating.png"))); // NOI18N
-        panelDetailMovie.add(bgAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
+        panelDetailMovie.add(bgAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, 70, -1));
 
         labelAge.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         labelAge.setForeground(new java.awt.Color(255, 255, 255));
         labelAge.setText("Rating Usia");
-        panelDetailMovie.add(labelAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
+        panelDetailMovie.add(labelAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
 
-        jLabelSutradara.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        jLabelSutradara.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelSutradara.setText("Greta Gerwig");
-        panelDetailMovie.add(jLabelSutradara, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, -1));
+        jLabelPrice.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        jLabelPrice.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelPrice.setText("Rp 50.000");
+        panelDetailMovie.add(jLabelPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, -1, -1));
 
-        labelSutradara.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
-        labelSutradara.setForeground(new java.awt.Color(255, 255, 255));
-        labelSutradara.setText("Sutradara");
-        panelDetailMovie.add(labelSutradara, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, -1, -1));
+        labelPrice.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
+        labelPrice.setForeground(new java.awt.Color(255, 255, 255));
+        labelPrice.setText("Harga");
+        panelDetailMovie.add(labelPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 390, -1, -1));
 
         labelDurasi.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         labelDurasi.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,7 +370,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         panelDetailMovie.add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster-movie.jpeg"))); // NOI18N
-        panelDetailMovie.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        panelDetailMovie.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.png"))); // NOI18N
         panelDetailMovie.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
@@ -157,34 +381,198 @@ public class DetailMoviePage extends javax.swing.JPanel {
         add(panelDetailMovie, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void panelBookingDateMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingDateMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingDateMouseExited
+
+    private void panelBookingDateMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingDateMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingDateMouseEntered
+
+    private void jLabelBookingDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingDateMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBookingDateMouseClicked
+
+    private void jLabelBookingTime8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime8MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBookingTime8MouseClicked
+
+    private void panelBookingTime8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime8MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime8MouseExited
+
+    private void panelBookingTime8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime8MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime8MouseEntered
+
+    private void jLabelBookingTime10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime10MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBookingTime10MouseClicked
+
+    private void panelBookingTime10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime10MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime10MouseExited
+
+    private void panelBookingTime10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime10MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime10MouseEntered
+
+    private void jLabelBookingTime12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime12MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBookingTime12MouseClicked
+
+    private void panelBookingTime12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime12MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime12MouseExited
+
+    private void panelBookingTime12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime12MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime12MouseEntered
+
+    private void jLabelBookingTime14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBookingTime14MouseClicked
+
+    private void panelBookingTime14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime14MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime14MouseExited
+
+    private void panelBookingTime14MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime14MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime14MouseEntered
+
+    private void jLabelBookingTime18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime18MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBookingTime18MouseClicked
+
+    private void panelBookingTime18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime18MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime18MouseExited
+
+    private void panelBookingTime18MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime18MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime18MouseEntered
+
+    private void jLabelBookingTime22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelBookingTime22MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelBookingTime22MouseClicked
+
+    private void panelBookingTime22MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime22MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime22MouseExited
+
+    private void panelBookingTime22MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBookingTime22MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelBookingTime22MouseEntered
+
     public JPanel getPanelDetailMovie() {
         return panelDetailMovie;
+    }
+    
+    public void setViewMovie() throws MalformedURLException, IOException {
+        jLabelTitle.setText(controller.getMovie().getTitle());
+        jLabelGenre.setText(controller.getMovie().getGenresString());   
+        jLabelDate.setText(controller.getMovie().getDateString());
+        jLabelAge.setText(controller.getMovie().getAgeRating().toString() + "+");
+        jLabelPrice.setText(controller.getMovie().getPriceString());
+        jTextAreaDescription.setText(controller.getMovie().getDescription());
+        jLabelRating.setText(Double.toString(controller.getMovie().getRating()));
+        
+        // poster
+        BufferedImage icon = ImageIO.read(new URL(controller.getMovie().getPoster()));
+        BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
+        Image scaledPoster = roundedPosterImage.getScaledInstance(250, 280, Image.SCALE_SMOOTH);
+        ImageIcon iconPoster = new ImageIcon(scaledPoster);
+        jLabelPoster.setPreferredSize(new Dimension(250, 280));
+        ImageIcon posterIcon;
+        posterIcon = new ImageIcon(icon);
+        jLabelPoster.setIcon(posterIcon);
+        jLabelPoster.setBounds(0, 0, 250, 280);
+        
+        int rating = (int) controller.getMovie().getRating();
+        if(rating >= 1) {
+            star1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png")));
+        }
+        if(rating >= 2) {
+            star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png")));
+        }
+        if(rating >= 3) {
+            star3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png")));
+        }
+        if(rating >= 4) {
+            star4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png")));
+        }
+        if(rating >= 5) {
+            star5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star-fill.png")));
+        }
+    }
+    
+      public BufferedImage makeRoundedCorner(BufferedImage image, int cornerRadius) {
+        int w = image.getWidth();
+        int h = image.getHeight();
+        BufferedImage output = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2 = output.createGraphics();
+
+        // This is what we want, but it only does hard-clipping, i.e. aliasing
+        // g2.setClip(new RoundRectangle2D ...)
+        // so instead fake soft-clipping by first drawing the desired clip shape
+        // in fully opaque white with antialiasing enabled...
+        g2.setComposite(AlphaComposite.Src);
+        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g2.setColor(Color.WHITE);
+        g2.fill(new RoundRectangle2D.Float(0, 0, w, h, cornerRadius, cornerRadius));
+
+        // ... then compositing the image on top,
+        // using the white shape from above as alpha source
+        g2.setComposite(AlphaComposite.SrcAtop);
+        g2.drawImage(image, 0, 0, null);
+
+        g2.dispose();
+
+        return output;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bgAge;
+    private javax.swing.JLabel btnBack;
     private javax.swing.JLabel jLabelAge;
     private javax.swing.JLabel jLabelBg;
+    private javax.swing.JLabel jLabelBookingDate;
+    private javax.swing.JLabel jLabelBookingTime10;
+    private javax.swing.JLabel jLabelBookingTime12;
+    private javax.swing.JLabel jLabelBookingTime14;
+    private javax.swing.JLabel jLabelBookingTime18;
+    private javax.swing.JLabel jLabelBookingTime22;
+    private javax.swing.JLabel jLabelBookingTime8;
     private javax.swing.JLabel jLabelDate;
-    private javax.swing.JLabel jLabelDescription;
     private javax.swing.JLabel jLabelGenre;
     private javax.swing.JLabel jLabelGenre1;
     private javax.swing.JLabel jLabelLine;
     private javax.swing.JLabel jLabelPoster;
+    private javax.swing.JLabel jLabelPrice;
     private javax.swing.JLabel jLabelRating;
-    private javax.swing.JLabel jLabelStar;
-    private javax.swing.JLabel jLabelStar1;
-    private javax.swing.JLabel jLabelStar2;
-    private javax.swing.JLabel jLabelStar3;
-    private javax.swing.JLabel jLabelStar4;
-    private javax.swing.JLabel jLabelSutradara;
     private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JTextArea jTextAreaDescription;
     private javax.swing.JLabel labelAge;
     private javax.swing.JLabel labelDurasi;
     private javax.swing.JLabel labelGenre;
-    private javax.swing.JLabel labelSutradara;
+    private javax.swing.JLabel labelPrice;
     private javax.swing.JLabel labelTanggalRilis;
     private javax.swing.JLabel logo;
+    private javax.swing.JPanel panelBookingDate;
+    private javax.swing.JPanel panelBookingTime10;
+    private javax.swing.JPanel panelBookingTime12;
+    private javax.swing.JPanel panelBookingTime14;
+    private javax.swing.JPanel panelBookingTime18;
+    private javax.swing.JPanel panelBookingTime22;
+    private javax.swing.JPanel panelBookingTime8;
     private javax.swing.JPanel panelDetailMovie;
+    private javax.swing.JLabel star1;
+    private javax.swing.JLabel star2;
+    private javax.swing.JLabel star3;
+    private javax.swing.JLabel star4;
+    private javax.swing.JLabel star5;
     // End of variables declaration//GEN-END:variables
 }

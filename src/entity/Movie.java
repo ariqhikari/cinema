@@ -1,7 +1,11 @@
 package entity;
 
-import java.sql.Array;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Currency;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 /**
@@ -12,19 +16,19 @@ public class Movie {
     private Integer id;
     private String title;
     private String description;
-    private String releaseDate;
+    private Date releaseDate;
     private String duration;
     private String poster;
     private double rating;
     private Integer ageRating;
     private Integer price;
-    private Array genres; 
+    private List<String> genres; 
     
     public Movie() {
         
     }
     
-    public Movie(String title, String description, String releaseDate, String duration, String poster, double rating, Integer ageRating, Integer price, Array genres) {
+    public Movie(String title, String description, Date releaseDate, String duration, String poster, double rating, Integer ageRating, Integer price, List<String> genres) {
         this.title = title;
         this.description = description;
         this.releaseDate = releaseDate;
@@ -60,11 +64,11 @@ public class Movie {
         this.description = description;
     }
 
-    public String getReleaseDate() {
+    public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(String releaseDate) {
+    public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
     }
 
@@ -108,12 +112,33 @@ public class Movie {
         this.price = price;
     }
 
-    public Array getGenres() {
+    public List<String> getGenres() {
         return genres;
     }
 
-    public void setGenres(Array genres) {
+    public void setGenres(List<String> genres) {
         this.genres = genres;
+    }
+    
+    public String getGenresString() {
+        return String.join(", ", this.genres);
+    }
+    
+    public String getDateString() {
+        String pattern = "dd MMMM yyyy";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String dateFormat = simpleDateFormat.format(this.releaseDate);
+        
+        return dateFormat;
+    }
+    
+    public String getPriceString() {
+        Locale id = new Locale("id", "ID");
+        Currency rupiah = Currency.getInstance(id);
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(id);
+        String priceString = formatter.format(Double.valueOf(this.price));
+        
+        return priceString;
     }
     
     @Override

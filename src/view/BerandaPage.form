@@ -33,6 +33,9 @@
       </Layout>
       <SubComponents>
         <Container class="javax.swing.JScrollPane" name="jScrollPanelMovie">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jScrollPanelMovie.setBackground(new java.awt.Color(0,0,0,1));"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="50" y="290" width="1120" height="340"/>
@@ -47,6 +50,9 @@
                   <Dimension value="[100, 806]"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="panelMovie.setBackground(new java.awt.Color(0,0,0,1));"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">

@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 import service.MovieDao;
 import view.MainWindow;
-import view.MovieView;
 
 /**
  *

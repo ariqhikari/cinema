@@ -6,25 +6,57 @@
 package view;
 
 import controller.MainWindowController;
+import controller.UserController;
+import event.UserListener;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import model.UserModel;
 
 /**
  *
  * @author ariqhikari
  */
-public class MainWindow extends javax.swing.JFrame {
-    MainWindowController windowController;
+public class MainWindow extends javax.swing.JFrame implements UserListener {
+    private MainWindowController windowController;
+    private UserModel model;
+    private UserController controller;
+    private boolean isLogin = false; 
+
+    public MainWindowController getWindowController() {
+        return windowController;
+    }
 
     /**
      * Creates new form MainFrame
      */
     public MainWindow() {
         windowController = new MainWindowController();
-        windowController.setBerandaPage(new BerandaPage());
+        windowController.setBerandaPage(new BerandaPage(this));
         windowController.setDetailMoviePage(new DetailMoviePage());
         windowController.setSeatPage(new SeatPage());
         
         initComponents();
+        
+        // tambahkan kode agar frame tidak bisa diubah ukuran
+        setExtendedState(JFrame.MAXIMIZED_HORIZ);
+        setVisible(true);
+        setResizable(false);
+        
+        model = new UserModel();
+        model.setListener(this);
+        
+        controller = new UserController();
+        controller.setModel(model);
+    }
+
+    public JTextField getTxtPassword() {
+        return txtPassword;
+    }
+
+    public JTextField getTxtUsername() {
+        return txtUsername;
     }
 
     /**
@@ -38,12 +70,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         panelMain = new javax.swing.JPanel();
         panelLogin = new javax.swing.JPanel();
-        panelRound1 = new elements.PanelRound();
+        panelBtnLogin = new elements.PanelRound();
         jLabelLogin = new javax.swing.JLabel();
-        gradientUsername = new elements.Gradient();
-        txtUsername = new elements.TextField();
-        gradientPassword = new elements.Gradient();
-        txtPassword = new elements.TextField();
+        panelRoundUsername = new elements.PanelRound();
+        txtUsername = new javax.swing.JTextField();
+        panelRoundPassword = new elements.PanelRound();
+        txtPassword = new javax.swing.JPasswordField();
         jLabelPassword = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
         jLabelDescription = new javax.swing.JLabel();
@@ -53,6 +85,7 @@ public class MainWindow extends javax.swing.JFrame {
         jLabelRectangle = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Five Cinema");
         getContentPane().setLayout(new java.awt.CardLayout());
 
         panelMain.setLayout(new java.awt.CardLayout());
@@ -60,44 +93,64 @@ public class MainWindow extends javax.swing.JFrame {
         panelLogin.setBackground(new java.awt.Color(0, 25, 83));
         panelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelRound1.setBackground(new java.awt.Color(22, 55, 128));
-        panelRound1.setRoundBottomLeft(25);
-        panelRound1.setRoundBottomRight(25);
-        panelRound1.setRoundTopLeft(25);
-        panelRound1.setRoundTopRight(25);
+        panelBtnLogin.setBackground(new java.awt.Color(22, 55, 128));
+        panelBtnLogin.setRoundBottomLeft(30);
+        panelBtnLogin.setRoundBottomRight(30);
+        panelBtnLogin.setRoundTopLeft(30);
+        panelBtnLogin.setRoundTopRight(30);
+        panelBtnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelBtnLoginMouseClicked(evt);
+            }
+        });
+        panelBtnLogin.setLayout(new java.awt.CardLayout());
 
+        jLabelLogin.setFont(new java.awt.Font("SansSerif", 0, 32)); // NOI18N
+        jLabelLogin.setForeground(new java.awt.Color(255, 255, 255));
         jLabelLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Login.png"))); // NOI18N
+        jLabelLogin.setText("Login");
         jLabelLogin.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabelLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabelLoginMouseClicked(evt);
             }
         });
-        panelRound1.add(jLabelLogin);
+        panelBtnLogin.add(jLabelLogin, "card2");
 
-        panelLogin.add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 530, 140, 40));
+        panelLogin.add(panelBtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 310, 60));
 
-        gradientUsername.setkEndColor(new java.awt.Color(141, 225, 243));
-        gradientUsername.setkStartColor(new java.awt.Color(109, 218, 247));
-        gradientUsername.setLayout(new java.awt.CardLayout());
+        panelRoundUsername.setBackground(new java.awt.Color(109, 218, 247));
+        panelRoundUsername.setRoundBottomLeft(30);
+        panelRoundUsername.setRoundBottomRight(30);
+        panelRoundUsername.setRoundTopLeft(30);
+        panelRoundUsername.setRoundTopRight(30);
+        panelRoundUsername.setLayout(new java.awt.CardLayout());
 
-        txtUsername.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        txtUsername.setPreferredSize(new java.awt.Dimension(310, 57));
-        gradientUsername.add(txtUsername, "card2");
+        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
+        panelRoundUsername.add(txtUsername, "card2");
         txtUsername.setBackground(new java.awt.Color(0,0,0,1));
 
-        panelLogin.add(gradientUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, -1, -1));
+        panelLogin.add(panelRoundUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 320, 60));
 
-        gradientPassword.setkEndColor(new java.awt.Color(141, 225, 243));
-        gradientPassword.setkStartColor(new java.awt.Color(109, 218, 247));
-        gradientPassword.setLayout(new java.awt.CardLayout());
+        panelRoundPassword.setBackground(new java.awt.Color(109, 218, 247));
+        panelRoundPassword.setRoundBottomLeft(30);
+        panelRoundPassword.setRoundBottomRight(30);
+        panelRoundPassword.setRoundTopLeft(30);
+        panelRoundPassword.setRoundTopRight(30);
+        panelRoundPassword.setLayout(new java.awt.CardLayout());
 
-        txtPassword.setPreferredSize(new java.awt.Dimension(310, 57));
-        gradientPassword.add(txtPassword, "card2");
+        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        panelRoundPassword.add(txtPassword, "card2");
         txtPassword.setBackground(new java.awt.Color(0,0,0,1));
 
-        panelLogin.add(gradientPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
+        panelLogin.add(panelRoundPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 320, 60));
 
         jLabelPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Password.png"))); // NOI18N
         panelLogin.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
@@ -131,8 +184,17 @@ public class MainWindow extends javax.swing.JFrame {
 
     private void jLabelLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginMouseClicked
         // TODO add your handling code here:
-        windowController.tampilHalamanKursi(this);
+        login();
     }//GEN-LAST:event_jLabelLoginMouseClicked
+
+    private void panelBtnLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelBtnLoginMouseClicked
+        // TODO add your handling code here:
+        login();
+    }//GEN-LAST:event_panelBtnLoginMouseClicked
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,10 +245,18 @@ public class MainWindow extends javax.swing.JFrame {
     public JPanel getPanelMain() {
         return panelMain;
     }
+    
+    private void login() {
+        isLogin = controller.loginUser(this);
+        
+        if(isLogin) {
+            jLabelLogin.setText("Loading..");
+            JOptionPane.showMessageDialog(this, "LOGIN BERHASIL");
+            windowController.tampilHalamanBeranda(this);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private elements.Gradient gradientPassword;
-    private elements.Gradient gradientUsername;
     private javax.swing.JLabel jLabelBg;
     private javax.swing.JLabel jLabelDescription;
     private javax.swing.JLabel jLabelLogin;
@@ -195,10 +265,18 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelRectangle;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelUsername;
+    private elements.PanelRound panelBtnLogin;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelMain;
-    private elements.PanelRound panelRound1;
-    private elements.TextField txtPassword;
-    private elements.TextField txtUsername;
+    private elements.PanelRound panelRoundPassword;
+    private elements.PanelRound panelRoundUsername;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void onChange(UserModel model) {
+        this.txtUsername.setText(model.getUsername()+"");
+        this.txtPassword.setText(model.getPassword());
+    }
 }

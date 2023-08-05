@@ -5,6 +5,7 @@
  */
 package controller;
 
+import entity.Movie;
 import exception.MovieException;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -66,7 +67,7 @@ public class MainWindowController {
         }
     }
     
-      public void tampilHalamanDetailMovie(MainWindow window)  {
+      public void tampilHalamanDetailMovie(MainWindow window, Movie movie)  {
         // membersihkan main panel
         window.getPanelMain().removeAll();
         window.getPanelMain().repaint();
@@ -76,6 +77,9 @@ public class MainWindowController {
         window.getPanelMain().add(detailMoviePage.getPanelDetailMovie());
         window.getPanelMain().repaint();
         window.getPanelMain().revalidate();
+        
+        detailMoviePage.getController().setMovie(movie);
+        detailMoviePage.setViewMovie();
     }
       
         public void tampilHalamanKursi(MainWindow window)  {

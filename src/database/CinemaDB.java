@@ -3,8 +3,10 @@ package database;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import com.mysql.jdbc.Connection;
 import impl.MovieDaoImpl;
+import impl.UserDaoImpl;
 import java.sql.SQLException;
 import service.MovieDao;
+import service.UserDao;
 
 /**
  *
@@ -13,6 +15,7 @@ import service.MovieDao;
 public class CinemaDB {
     private static Connection connection;
     private static MovieDao movieDao;   
+    private static UserDao userDao;   
     
     public static Connection getConnection() throws SQLException {
         if (connection == null) {
@@ -36,5 +39,12 @@ public class CinemaDB {
             movieDao = new MovieDaoImpl(getConnection());
         }
         return movieDao;
+    }
+    
+    public static UserDao getUser() throws SQLException {
+        if (userDao == null) {
+            userDao = new UserDaoImpl(getConnection());
+        }
+        return userDao;
     }
 }
