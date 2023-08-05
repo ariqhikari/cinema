@@ -39,6 +39,9 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         
         initComponents();
         
+        txtUsername.setBackground(new java.awt.Color(0,0,0,1));
+        txtPassword.setBackground((new java.awt.Color(0,0,0,1)));
+        
         // tambahkan kode agar frame tidak bisa diubah ukuran
         setExtendedState(JFrame.MAXIMIZED_HORIZ);
         setVisible(true);
@@ -128,6 +131,7 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
 
         txtUsername.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtUsername.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsername.setBorder(null);
         panelRoundUsername.add(txtUsername, "card2");
         txtUsername.setBackground(new java.awt.Color(0,0,0,1));
 
@@ -142,6 +146,7 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
 
         txtPassword.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setBorder(null);
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);

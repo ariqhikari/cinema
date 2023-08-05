@@ -26,11 +26,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import service.MovieDao;
 
 /**
@@ -48,6 +51,15 @@ public class BerandaPage extends javax.swing.JPanel {
         this.window = window;
         initComponents();
     }
+
+    public JScrollPane getjScrollPanelMovie() {
+        return jScrollPanelMovie;
+    }
+
+    public JPanel getPanelMovie() {
+        return panelMovie;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,13 +89,15 @@ public class BerandaPage extends javax.swing.JPanel {
         panelBeranda.setPreferredSize(new java.awt.Dimension(1200, 800));
         panelBeranda.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPanelMovie.setBorder(null);
+
         panelMovie.setPreferredSize(new java.awt.Dimension(100, 806));
 
         javax.swing.GroupLayout panelMovieLayout = new javax.swing.GroupLayout(panelMovie);
         panelMovie.setLayout(panelMovieLayout);
         panelMovieLayout.setHorizontalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1101, Short.MAX_VALUE)
+            .addGap(0, 1094, Short.MAX_VALUE)
         );
         panelMovieLayout.setVerticalGroup(
             panelMovieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,9 +106,13 @@ public class BerandaPage extends javax.swing.JPanel {
 
         jScrollPanelMovie.setViewportView(panelMovie);
         panelMovie.setBackground(new java.awt.Color(0,0,0,1));
+        panelMovie.setOpaque(false);
 
         panelBeranda.add(jScrollPanelMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, 1120, 340));
         jScrollPanelMovie.setBackground(new java.awt.Color(0,0,0,1));
+        jScrollPanelMovie.getViewport().setOpaque(false);
+        jScrollPanelMovie.setBorder(BorderFactory.createEmptyBorder());
+        jScrollPanelMovie.setOpaque(false);
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster.jpeg"))); // NOI18N
         panelBeranda.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
@@ -176,7 +194,11 @@ public class BerandaPage extends javax.swing.JPanel {
             poster.addMouseListener(new MouseListener() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                      window.getWindowController().tampilHalamanDetailMovie(window, movie);
+                    try {
+                        window.getWindowController().tampilHalamanDetailMovie(window, movie);
+                    } catch (IOException ex) {
+                        Logger.getLogger(BerandaPage.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
                 @Override
