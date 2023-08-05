@@ -20,6 +20,6 @@ public class DetailMovieController {
     }
     
     public void chooseSeat(MainWindow window, String time) {
-        window.getWindowController().tampilHalamanKursi(window, this.movie.getId(), LocalTime.parse(time));
+        window.getWindowController().tampilHalamanKursi(window, this.movie, LocalTime.parse(time));
     }
 }

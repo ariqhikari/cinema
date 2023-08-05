@@ -15,12 +15,9 @@ import java.awt.RenderingHints;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
@@ -556,7 +553,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         return panelDetailMovie;
     }
     
-    public void setViewMovie() throws MalformedURLException, IOException {
+    public void setViewMovie() throws IOException {
         jLabelTitle.setText(controller.getMovie().getTitle());
         jLabelGenre.setText(controller.getMovie().getGenresString());   
         jLabelDate.setText(controller.getMovie().getDateString());
@@ -566,7 +563,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jLabelRating.setText(Double.toString(controller.getMovie().getRating()));
         
         // poster
-        BufferedImage icon = ImageIO.read(new URL(controller.getMovie().getPoster()));
+        BufferedImage icon = ImageIO.read(getClass().getResource(controller.getMovie().getPoster()));              
         BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
         Image scaledPoster = roundedPosterImage.getScaledInstance(250, 280, Image.SCALE_SMOOTH);
         ImageIcon iconPoster = new ImageIcon(scaledPoster);

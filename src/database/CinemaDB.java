@@ -29,9 +29,9 @@ public class CinemaDB {
             MysqlDataSource dataSource = new MysqlDataSource();
             
             // set nilai URL, username, dan password dari database
-            dataSource.setURL("jdbc:mysql://localhost:3306/cinema2");
+            dataSource.setURL("jdbc:mysql://localhost:8889/cinema");
             dataSource.setUser("root");
-            dataSource.setPassword("");
+            dataSource.setPassword("root");
             
             // isi atribut connection
             connection = (Connection) dataSource.getConnection();

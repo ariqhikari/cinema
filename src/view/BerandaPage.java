@@ -23,8 +23,6 @@ import java.awt.event.MouseListener;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -149,20 +147,12 @@ public class BerandaPage extends javax.swing.JPanel {
         add(panelBeranda, "card13");
     }// </editor-fold>//GEN-END:initComponents
 
-    public void loadDatabase() throws SQLException, MovieException, MalformedURLException, IOException {
+    public void loadDatabase() throws SQLException, MovieException, IOException {
         MovieDao dao = CinemaDB.getMovie();
         List<Movie> movies = dao.selectAllMovie();
           
         panelMovie.setLayout(new GridLayout(0, 4));        
         panelMovie.setPreferredSize(new Dimension(0, 3500));
-        panelMovie.setOpaque(false);
-        panelMovie.setBackground(new java.awt.Color(0,0,0,1));
-        jScrollPanelMovie.setOpaque(false);
-        jScrollPanelMovie.setBackground(new java.awt.Color(0,0,0,1));
-        
-//        for (int i = 1; i <= movies.size()-1; i++) {
-//            panelMovie.add(new JButton(movies.get(i).getTitle()));
-//        }
         
         for (int i = 0; i < movies.size(); i++) {
             Movie movie = movies.get(i);
@@ -181,7 +171,7 @@ public class BerandaPage extends javax.swing.JPanel {
             cardPanel.setBackground(new java.awt.Color(0,0,0,1));
 
             JLabel poster = new JLabel();
-            BufferedImage icon = ImageIO.read(new URL(movie.getPoster()));
+            BufferedImage icon = ImageIO.read(getClass().getResource(movie.getPoster()));              
             BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
             Image scaledPoster = roundedPosterImage.getScaledInstance(250, 400, Image.SCALE_SMOOTH);
             ImageIcon iconPoster = new ImageIcon(scaledPoster);

@@ -1,20 +1,28 @@
 package view;
 
+import controller.SeatController;
 import database.CinemaDB;
 import entity.Showtime;
 import exception.ShowtimeException;
-import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 import service.ShowtimeDao;
 
 public class SeatPage extends javax.swing.JPanel {
-
+    MainWindow window;
+    SeatController controller;
+    
     /**
      * Creates new form SeatPage
      */
-    public SeatPage() {
+    public SeatPage(MainWindow window) {
+        this.window = window;
+        controller = new SeatController();
+        
         initComponents();
     }
 
@@ -34,6 +42,7 @@ public class SeatPage extends javax.swing.JPanel {
     private void initComponents() {
 
         panelSeat = new javax.swing.JPanel();
+        btnBack = new javax.swing.JLabel();
         seatF6 = new javax.swing.JLabel();
         seatF5 = new javax.swing.JLabel();
         seatF4 = new javax.swing.JLabel();
@@ -101,6 +110,15 @@ public class SeatPage extends javax.swing.JPanel {
         setLayout(new java.awt.CardLayout());
 
         panelSeat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackMouseClicked(evt);
+            }
+        });
+        panelSeat.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
         seatF6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
         panelSeat.add(seatF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 180, -1, -1));
@@ -317,6 +335,19 @@ public class SeatPage extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_seatA2MouseClicked
 
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+        try {
+            // TODO add your handling code here:
+            window.getWindowController().tampilHalamanDetailMovie(window, controller.getMovie());
+        } catch (IOException ex) {
+            Logger.getLogger(SeatPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnBackMouseClicked
+
+    public SeatController getController() {
+        return controller;
+    }
+
     private void seatA1MouseClicked(java.awt.event.MouseEvent evt) {                                    
         // TODO add your handling code here:
     }                                   
@@ -325,12 +356,15 @@ public class SeatPage extends javax.swing.JPanel {
     public void loadDatabase(int movieId, LocalTime time) throws SQLException, ShowtimeException {
         ShowtimeDao dao = CinemaDB.getShowtime();
         Showtime showtime = dao.getShowtime(movieId, time);
+        controller.setShowtime(showtime);
+        System.out.println(showtime.getSeats().toString());
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel availableSeat;
     private javax.swing.JLabel background;
     private javax.swing.JLabel base;
+    private javax.swing.JLabel btnBack;
     private javax.swing.JLabel buyBtn;
     private javax.swing.JLabel keranjangMerah;
     private javax.swing.JPanel panelSeat;

@@ -79,7 +79,7 @@ public class MainWindowController {
         detailMoviePage.setViewMovie();
     }
       
-        public void tampilHalamanKursi(MainWindow window, int movieId, LocalTime time)  {
+        public void tampilHalamanKursi(MainWindow window, Movie movie, LocalTime time)  {
         // membersihkan main panel
         window.getPanelMain().removeAll();
         window.getPanelMain().repaint();
@@ -91,7 +91,8 @@ public class MainWindowController {
         window.getPanelMain().revalidate();
         
         try {
-            seatPage.loadDatabase(movieId, time);
+            seatPage.getController().setMovie(movie);
+            seatPage.loadDatabase(movie.getId(), time);
         } catch (SQLException | ShowtimeException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }

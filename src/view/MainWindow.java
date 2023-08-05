@@ -36,7 +36,7 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         windowController = new MainWindowController();
         windowController.setBerandaPage(new BerandaPage(this));
         windowController.setDetailMoviePage(new DetailMoviePage(this));
-        windowController.setSeatPage(new SeatPage());
+        windowController.setSeatPage(new SeatPage(this));
         
         initComponents();
         
