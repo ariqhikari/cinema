@@ -113,7 +113,6 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jTextAreaDescription.setWrapStyleWord(true);
         jTextAreaDescription.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextAreaDescription.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        jTextAreaDescription.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         jTextAreaDescription.setSelectionColor(new java.awt.Color(255, 255, 255));
         jScrollPane.setViewportView(jTextAreaDescription);
         jTextAreaDescription.setBackground(new java.awt.Color(0,0,0,1));
