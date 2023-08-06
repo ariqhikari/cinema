@@ -7,10 +7,12 @@ import com.mysql.jdbc.Connection; //untuk mysql neatbeans 8.2
 //import java.sql.Connection; //untuk mysql yang terpisah
 import impl.MovieDaoImpl;
 import impl.ShowtimeDaoImpl;
+import impl.TransactionDaoImpl;
 import impl.UserDaoImpl;
 import java.sql.SQLException;
 import service.MovieDao;
 import service.ShowtimeDao;
+import service.TransactionDao;
 import service.UserDao;
 
 /**
@@ -22,6 +24,7 @@ public class CinemaDB {
     private static MovieDao movieDao;   
     private static UserDao userDao;   
     private static ShowtimeDao showtimeDao;   
+    private static TransactionDao transactionDao;   
     
     public static Connection getConnection() throws SQLException {
         if (connection == null) {
@@ -54,10 +57,17 @@ public class CinemaDB {
         return userDao;
     }
     
-     public static ShowtimeDao getShowtime() throws SQLException {
+    public static ShowtimeDao getShowtime() throws SQLException {
         if (showtimeDao == null) {
             showtimeDao = new ShowtimeDaoImpl(getConnection());
         }
         return showtimeDao;
+    }
+    
+    public static TransactionDao getTransaction() throws SQLException {
+        if (transactionDao == null) {
+            transactionDao = new TransactionDaoImpl(getConnection());
+        }
+        return transactionDao;
     }
 }

@@ -150,6 +150,10 @@ public class BerandaPage extends javax.swing.JPanel {
     public void loadDatabase() throws SQLException, MovieException, IOException {
         MovieDao dao = CinemaDB.getMovie();
         List<Movie> movies = dao.selectAllMovie();
+        
+        panelMovie.removeAll();
+        panelMovie.repaint();
+        panelMovie.revalidate();
           
         panelMovie.setLayout(new GridLayout(0, 4));        
         panelMovie.setPreferredSize(new Dimension(0, 3500));
@@ -163,13 +167,7 @@ public class BerandaPage extends javax.swing.JPanel {
             contentPanel.setPreferredSize(new Dimension(250, 400));
             contentPanel.setBackground(new java.awt.Color(0,0,0,1));
 
-            // Card Panel
-            final JPanel cardPanel = new JPanel();
-            cardPanel.setBorder(BorderFactory.createEmptyBorder());
-            cardPanel.setLayout(null);
-            cardPanel.setSize(250, 400);
-            cardPanel.setBackground(new java.awt.Color(0,0,0,1));
-
+            // poster
             JLabel poster = new JLabel();
             BufferedImage icon = ImageIO.read(getClass().getResource(movie.getPoster()));              
             BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
@@ -214,8 +212,8 @@ public class BerandaPage extends javax.swing.JPanel {
                 }
             });
 
-            cardPanel.add(poster);
-            contentPanel.add(cardPanel);
+//            cardPanel.add(poster);
+            contentPanel.add(poster);
             panelMovie.add(contentPanel);
 
         }   

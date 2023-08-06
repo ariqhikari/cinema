@@ -37,6 +37,7 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         windowController.setBerandaPage(new BerandaPage(this));
         windowController.setDetailMoviePage(new DetailMoviePage(this));
         windowController.setSeatPage(new SeatPage(this));
+        windowController.setPembayaranPage(new PembayaranPage(this));
         
         initComponents();
         
@@ -252,6 +253,10 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
 
     public JPanel getPanelMain() {
         return panelMain;
+    }
+
+    public UserModel getModel() {
+        return model;
     }
     
     private void login() {

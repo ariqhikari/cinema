@@ -562,7 +562,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jTextAreaDescription.setText(controller.getMovie().getDescription());
         jLabelRating.setText(Double.toString(controller.getMovie().getRating()));
         
-        // poster
+//        // poster
         BufferedImage icon = ImageIO.read(getClass().getResource(controller.getMovie().getPoster()));              
         BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
         Image scaledPoster = roundedPosterImage.getScaledInstance(250, 280, Image.SCALE_SMOOTH);

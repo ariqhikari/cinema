@@ -1,20 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package view;
+
+import controller.PembayaranController;
+import elements.TextField;
+import javax.swing.JPanel;
 
 /**
  *
  * @author erwin
  */
 public class PembayaranPage extends javax.swing.JPanel {
+    MainWindow window;
+    PembayaranController controller;
 
     /**
      * Creates new form PembayaranView
+     * @param window
      */
-    public PembayaranPage() {
+    public PembayaranPage(MainWindow window) {
+        this.window = window;
+        controller = new PembayaranController();
+        
         initComponents();
+    }
+
+    public PembayaranController getController() {
+        return controller;
     }
 
     /**
@@ -26,96 +36,205 @@ public class PembayaranPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textField1 = new elements.TextField();
-        textField2 = new elements.TextField();
-        textField3 = new elements.TextField();
-        textField4 = new elements.TextField();
-        panelRound2 = new elements.PanelRound();
+        panelPembayaran = new javax.swing.JPanel();
+        logo = new javax.swing.JLabel();
+        btnBack = new javax.swing.JLabel();
+        jLabelTotalBayar = new javax.swing.JLabel();
+        txtTotalBayar = new elements.TextField();
+        txtKembalian = new elements.TextField();
+        txtDetailPembelian = new elements.TextField();
+        txtTotalHarga = new elements.TextField();
+        txtTunai = new elements.TextField();
+        panelHitung = new elements.PanelRound();
         jLabelHitung = new javax.swing.JLabel();
         jLabelDetailPemblian = new javax.swing.JLabel();
         jLabelTunai = new javax.swing.JLabel();
         jLabelKembalian = new javax.swing.JLabel();
         jLabelTotalHarga = new javax.swing.JLabel();
-        panelRound5 = new elements.PanelRound();
+        panelPrintTiket = new elements.PanelRound();
         jLabelPrintTiket = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new java.awt.CardLayout());
 
-        textField1.setBackground(new java.awt.Color(109, 218, 247));
-        textField1.setRound(50);
-        textField1.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 667, 71));
+        panelPembayaran.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textField2.setBackground(new java.awt.Color(109, 218, 247));
-        textField2.setRound(50);
-        textField2.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 667, 71));
+        logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.png"))); // NOI18N
+        panelPembayaran.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        textField3.setBackground(new java.awt.Color(109, 218, 247));
-        textField3.setRound(50);
-        textField3.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 667, 71));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
+        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBackMouseClicked(evt);
+            }
+        });
+        panelPembayaran.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
-        textField4.setBackground(new java.awt.Color(109, 218, 247));
-        textField4.setRound(50);
-        textField4.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 667, 71));
+        jLabelTotalBayar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Total Bayar.png"))); // NOI18N
+        panelPembayaran.add(jLabelTotalBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 410, 180, 60));
 
-        panelRound2.setBackground(new java.awt.Color(251, 99, 199));
-        panelRound2.setRoundBottomLeft(40);
-        panelRound2.setRoundBottomRight(40);
-        panelRound2.setRoundTopLeft(40);
-        panelRound2.setRoundTopRight(40);
-        panelRound2.setLayout(new java.awt.GridBagLayout());
+        txtTotalBayar.setBackground(new java.awt.Color(109, 218, 247));
+        txtTotalBayar.setForeground(new java.awt.Color(255, 255, 255));
+        txtTotalBayar.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
+        txtTotalBayar.setRound(50);
+        txtTotalBayar.setShadowColor(new java.awt.Color(141, 225, 243));
+        panelPembayaran.add(txtTotalBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 667, 71));
+
+        txtKembalian.setBackground(new java.awt.Color(109, 218, 247));
+        txtKembalian.setForeground(new java.awt.Color(255, 255, 255));
+        txtKembalian.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
+        txtKembalian.setRound(50);
+        txtKembalian.setShadowColor(new java.awt.Color(141, 225, 243));
+        panelPembayaran.add(txtKembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 580, 667, 71));
+        txtKembalian.setEditable(false);
+
+        txtDetailPembelian.setBackground(new java.awt.Color(109, 218, 247));
+        txtDetailPembelian.setForeground(new java.awt.Color(255, 255, 255));
+        txtDetailPembelian.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
+        txtDetailPembelian.setRound(50);
+        txtDetailPembelian.setShadowColor(new java.awt.Color(141, 225, 243));
+        panelPembayaran.add(txtDetailPembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 667, 71));
+        txtDetailPembelian.setEditable(false);
+
+        txtTotalHarga.setBackground(new java.awt.Color(109, 218, 247));
+        txtTotalHarga.setForeground(new java.awt.Color(255, 255, 255));
+        txtTotalHarga.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
+        txtTotalHarga.setRound(50);
+        txtTotalHarga.setShadowColor(new java.awt.Color(141, 225, 243));
+        panelPembayaran.add(txtTotalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, 667, 71));
+        txtTotalHarga.setEditable(false);
+
+        txtTunai.setBackground(new java.awt.Color(109, 218, 247));
+        txtTunai.setForeground(new java.awt.Color(255, 255, 255));
+        txtTunai.setText("Cash");
+        txtTunai.setCaretColor(new java.awt.Color(255, 255, 255));
+        txtTunai.setFont(new java.awt.Font("SansSerif", 1, 28)); // NOI18N
+        txtTunai.setRound(50);
+        txtTunai.setShadowColor(new java.awt.Color(141, 225, 243));
+        txtTunai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTunaiActionPerformed(evt);
+            }
+        });
+        panelPembayaran.add(txtTunai, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 667, 71));
+        txtTunai.setEditable(false);
+
+        panelHitung.setBackground(new java.awt.Color(251, 99, 199));
+        panelHitung.setRoundBottomLeft(40);
+        panelHitung.setRoundBottomRight(40);
+        panelHitung.setRoundTopLeft(40);
+        panelHitung.setRoundTopRight(40);
+        panelHitung.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelHitungMouseClicked(evt);
+            }
+        });
+        panelHitung.setLayout(new java.awt.GridBagLayout());
 
         jLabelHitung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Hitung.png"))); // NOI18N
-        panelRound2.add(jLabelHitung, new java.awt.GridBagConstraints());
+        jLabelHitung.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelHitung.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHitungMouseClicked(evt);
+            }
+        });
+        panelHitung.add(jLabelHitung, new java.awt.GridBagConstraints());
 
-        add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 204, 71));
+        panelPembayaran.add(panelHitung, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, 204, 71));
+        panelHitung.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabelDetailPemblian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Detail Pembelian (1).png"))); // NOI18N
-        add(jLabelDetailPemblian, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 269, 80));
+        panelPembayaran.add(jLabelDetailPemblian, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 269, 80));
 
         jLabelTunai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Tunai (1).png"))); // NOI18N
-        add(jLabelTunai, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, 110, 60));
+        panelPembayaran.add(jLabelTunai, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 110, 60));
 
         jLabelKembalian.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Kembalian (1).png"))); // NOI18N
-        add(jLabelKembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, 170, 60));
+        panelPembayaran.add(jLabelKembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 580, 170, 60));
 
         jLabelTotalHarga.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Total Harga (1).png"))); // NOI18N
-        add(jLabelTotalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 210, 60));
+        panelPembayaran.add(jLabelTotalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, 60));
 
-        panelRound5.setBackground(new java.awt.Color(251, 99, 199));
-        panelRound5.setRoundBottomLeft(40);
-        panelRound5.setRoundBottomRight(40);
-        panelRound5.setRoundTopLeft(40);
-        panelRound5.setRoundTopRight(40);
-        panelRound5.setLayout(new java.awt.GridBagLayout());
+        panelPrintTiket.setBackground(new java.awt.Color(251, 99, 199));
+        panelPrintTiket.setRoundBottomLeft(40);
+        panelPrintTiket.setRoundBottomRight(40);
+        panelPrintTiket.setRoundTopLeft(40);
+        panelPrintTiket.setRoundTopRight(40);
+        panelPrintTiket.setLayout(new java.awt.GridBagLayout());
 
         jLabelPrintTiket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Print Tiket.png"))); // NOI18N
-        panelRound5.add(jLabelPrintTiket, new java.awt.GridBagConstraints());
+        panelPrintTiket.add(jLabelPrintTiket, new java.awt.GridBagConstraints());
 
-        add(panelRound5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, 204, 71));
+        panelPembayaran.add(panelPrintTiket, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 670, 204, 71));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-beranda.png"))); // NOI18N
-        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 820));
+        panelPembayaran.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
+
+        add(panelPembayaran, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtTunaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTunaiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTunaiActionPerformed
 
+    private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
+        // TODO add your handling code here:
+        window.getWindowController().tampilHalamanKursi(window, controller.getMovie(), controller.getShowtime().getTime());
+    }//GEN-LAST:event_btnBackMouseClicked
+
+    private void panelHitungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelHitungMouseClicked
+        // TODO add your handling code here:
+        controller.hitungKembalian(this);
+    }//GEN-LAST:event_panelHitungMouseClicked
+
+    private void jLabelHitungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHitungMouseClicked
+        // TODO add your handling code here:
+        controller.hitungKembalian(this);
+    }//GEN-LAST:event_jLabelHitungMouseClicked
+
+    public JPanel getPanelPembayaran() {
+        return panelPembayaran;
+    }
+
+    public TextField getTxtDetailPembelian() {
+        return txtDetailPembelian;
+    }
+
+    public TextField getTxtKembalian() {
+        return txtKembalian;
+    }
+
+    public TextField getTxtTotalHarga() {
+        return txtTotalHarga;
+    }
+
+    public TextField getTxtTunai() {
+        return txtTunai;
+    }
+
+    public TextField getTxtTotalBayar() {
+        return txtTotalBayar;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
+    private javax.swing.JLabel btnBack;
     private javax.swing.JLabel jLabelDetailPemblian;
     private javax.swing.JLabel jLabelHitung;
     private javax.swing.JLabel jLabelKembalian;
     private javax.swing.JLabel jLabelPrintTiket;
+    private javax.swing.JLabel jLabelTotalBayar;
     private javax.swing.JLabel jLabelTotalHarga;
     private javax.swing.JLabel jLabelTunai;
-    private elements.PanelRound panelRound2;
-    private elements.PanelRound panelRound5;
-    private elements.TextField textField1;
-    private elements.TextField textField2;
-    private elements.TextField textField3;
-    private elements.TextField textField4;
+    private javax.swing.JLabel logo;
+    private elements.PanelRound panelHitung;
+    private javax.swing.JPanel panelPembayaran;
+    private elements.PanelRound panelPrintTiket;
+    private elements.TextField txtDetailPembelian;
+    private elements.TextField txtKembalian;
+    private elements.TextField txtTotalBayar;
+    private elements.TextField txtTotalHarga;
+    private elements.TextField txtTunai;
     // End of variables declaration//GEN-END:variables
 }

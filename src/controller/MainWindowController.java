@@ -1,6 +1,8 @@
 package controller;
 
 import entity.Movie;
+import entity.Showtime;
+import entity.Transaction;
 import exception.MovieException;
 import exception.ShowtimeException;
 import java.io.IOException;
@@ -11,6 +13,7 @@ import java.util.logging.Logger;
 import view.BerandaPage;
 import view.DetailMoviePage;
 import view.MainWindow;
+import view.PembayaranPage;
 import view.SeatPage;
 
 /**
@@ -21,6 +24,7 @@ public class MainWindowController {
     private BerandaPage berandaPage;
     private DetailMoviePage detailMoviePage;
     private SeatPage seatPage;
+    private PembayaranPage pembayaranPage;
 
     public void setBerandaPage(BerandaPage berandaPage) {
         this.berandaPage = berandaPage;
@@ -32,6 +36,10 @@ public class MainWindowController {
     
     public void setSeatPage(SeatPage seatPage) {
         this.seatPage = seatPage;
+    }
+
+    public void setPembayaranPage(PembayaranPage pembayaranPage) {
+        this.pembayaranPage = pembayaranPage;
     }
       
     public void tampilHalamanLogin(MainWindow window) {
@@ -79,7 +87,7 @@ public class MainWindowController {
         detailMoviePage.setViewMovie();
     }
       
-        public void tampilHalamanKursi(MainWindow window, Movie movie, LocalTime time)  {
+    public void tampilHalamanKursi(MainWindow window, Movie movie, LocalTime time)  {
         // membersihkan main panel
         window.getPanelMain().removeAll();
         window.getPanelMain().repaint();
@@ -96,5 +104,22 @@ public class MainWindowController {
         } catch (SQLException | ShowtimeException ex) {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void tampilHalamanPembayaran(MainWindow window, Movie movie, Showtime showtime, Transaction transaction)  {
+        // membersihkan main panel
+        window.getPanelMain().removeAll();
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
+        
+        // tambah panel baru
+        window.getPanelMain().add(pembayaranPage.getPanelPembayaran());
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
+        
+        pembayaranPage.getController().setMovie(movie);
+        pembayaranPage.getController().setShowtime(showtime);
+        pembayaranPage.getController().setTransaction(transaction);
+        pembayaranPage.getController().setDetail(pembayaranPage);
     }
 }
