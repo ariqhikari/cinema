@@ -1,9 +1,10 @@
 package impl;
 
-import com.mysql.jdbc.Connection;  //untuk mysql neatbeans 8.2
+//import com.mysql.jdbc.Connection;  //untuk mysql neatbeans 8.2
 //import java.sql.Connection;
 import entity.Movie;
 import exception.MovieException;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

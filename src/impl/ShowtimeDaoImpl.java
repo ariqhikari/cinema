@@ -1,9 +1,10 @@
 package impl;
 
-import com.mysql.jdbc.Connection;
+//import com.mysql.jdbc.Connection;
 import java.sql.PreparedStatement;
 import entity.Showtime;
 import exception.ShowtimeException;
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
