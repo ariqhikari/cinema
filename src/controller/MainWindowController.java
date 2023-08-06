@@ -12,6 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import view.BerandaPage;
 import view.DetailMoviePage;
+import view.DetailTiketPage;
 import view.MainWindow;
 import view.PembayaranPage;
 import view.SeatPage;
@@ -25,6 +26,7 @@ public class MainWindowController {
     private DetailMoviePage detailMoviePage;
     private SeatPage seatPage;
     private PembayaranPage pembayaranPage;
+    private DetailTiketPage detailTiketPage;
 
     public void setBerandaPage(BerandaPage berandaPage) {
         this.berandaPage = berandaPage;
@@ -40,6 +42,10 @@ public class MainWindowController {
 
     public void setPembayaranPage(PembayaranPage pembayaranPage) {
         this.pembayaranPage = pembayaranPage;
+    }
+
+    public void setDetailTiketPage(DetailTiketPage detailTiketPage) {
+        this.detailTiketPage = detailTiketPage;
     }
       
     public void tampilHalamanLogin(MainWindow window) {
@@ -121,5 +127,17 @@ public class MainWindowController {
         pembayaranPage.getController().setShowtime(showtime);
         pembayaranPage.getController().setTransaction(transaction);
         pembayaranPage.getController().setDetail(pembayaranPage);
+    }
+    
+    public void tampilHalamanDetailTiket(MainWindow window)  {
+        // membersihkan main panel
+        window.getPanelMain().removeAll();
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
+        
+        // tambah panel baru
+        window.getPanelMain().add(detailTiketPage.getPanelDetailTiket());
+        window.getPanelMain().repaint();
+        window.getPanelMain().revalidate();
     }
 }

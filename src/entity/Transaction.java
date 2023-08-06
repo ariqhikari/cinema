@@ -13,20 +13,22 @@ public class Transaction {
     private Integer userId;
     private Integer showTimeId;
     private List<String> bookingSeat; 
-    private Integer totalCost;
-    private String status;
+    private Integer totalPrice;
+    private Integer totalPay;
+    private String status = "SUCCESS";
     
     public Transaction() {
         
     }
     
-    public Transaction(String transactionCode, Integer userId, Integer showTimeId, List<String> bookingSeat, Integer totalCost, String status) {
+    public Transaction(String transactionCode, Integer userId, Integer showTimeId, List<String> bookingSeat, Integer totalPrice, Integer totalPay, String status) {
         this.transactionCode = transactionCode;
         this.userId = userId;
         this.showTimeId = showTimeId;
         this.bookingSeat = bookingSeat;
-        this.totalCost = totalCost;
-        this.status = status;;
+        this.totalPrice = totalPrice;
+        this.totalPay = totalPay;
+        this.status = status;
     }
 
     public Integer getId() {
@@ -69,12 +71,12 @@ public class Transaction {
         this.bookingSeat = bookingSeat;
     }
 
-    public Integer getTotalCost() {
-        return totalCost;
+    public Integer getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setTotalCost(Integer totalCost) {
-        this.totalCost = totalCost;
+    public void setTotalPrice(Integer totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public String getStatus() {
@@ -85,16 +87,25 @@ public class Transaction {
         this.status = status;
     }
 
+    public Integer getTotalPay() {
+        return totalPay;
+    }
+
+    public void setTotalPay(Integer totalPay) {
+        this.totalPay = totalPay;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 41 * hash + Objects.hashCode(this.id);
-        hash = 41 * hash + Objects.hashCode(this.transactionCode);
-        hash = 41 * hash + Objects.hashCode(this.userId);
-        hash = 41 * hash + Objects.hashCode(this.showTimeId);
-        hash = 41 * hash + Objects.hashCode(this.bookingSeat);
-        hash = 41 * hash + Objects.hashCode(this.totalCost);
-        hash = 41 * hash + Objects.hashCode(this.status);
+        hash = 59 * hash + Objects.hashCode(this.id);
+        hash = 59 * hash + Objects.hashCode(this.transactionCode);
+        hash = 59 * hash + Objects.hashCode(this.userId);
+        hash = 59 * hash + Objects.hashCode(this.showTimeId);
+        hash = 59 * hash + Objects.hashCode(this.bookingSeat);
+        hash = 59 * hash + Objects.hashCode(this.totalPrice);
+        hash = 59 * hash + Objects.hashCode(this.totalPay);
+        hash = 59 * hash + Objects.hashCode(this.status);
         return hash;
     }
 
@@ -128,11 +139,12 @@ public class Transaction {
         if (!Objects.equals(this.bookingSeat, other.bookingSeat)) {
             return false;
         }
-        if (!Objects.equals(this.totalCost, other.totalCost)) {
+        if (!Objects.equals(this.totalPrice, other.totalPrice)) {
+            return false;
+        }
+        if (!Objects.equals(this.totalPay, other.totalPay)) {
             return false;
         }
         return true;
     }
-    
-    
 }

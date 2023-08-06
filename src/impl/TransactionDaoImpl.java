@@ -21,8 +21,8 @@ public class TransactionDaoImpl implements TransactionDao {
     private Connection connection;
     
     private final String insertTransaction = "INSERT INTO transactions"
-                                        + "(transactionCode, userId, showTimeId, bookingSeat, totalCost) "
-                                        + "VALUES(?, ?, ?, ?, ?)";
+                                        + "(transactionCode, userId, showTimeId, bookingSeat, totalPrice, totalPay) "
+                                        + "VALUES(?, ?, ?, ?, ?, ?)";
     
     private final String getById = "SELECT * from transactions "
                                     + "WHERE id = ? ";
@@ -43,7 +43,12 @@ public class TransactionDaoImpl implements TransactionDao {
             statement.setString(1, transaction.getTransactionCode());
             statement.setInt(2, transaction.getUserId());
             statement.setInt(3, transaction.getShowTimeId());
-            statement.setString(4, transaction.getBookingSeat().toString());
+            
+            JSONArray jsonBookingSeat = new JSONArray(transaction.getBookingSeat());
+            statement.setString(4, jsonBookingSeat.toString());
+            
+            statement.setInt(5, transaction.getTotalPrice());
+            statement.setInt(6, transaction.getTotalPay());
             statement.executeUpdate();
             
             ResultSet result = statement.getGeneratedKeys();
@@ -92,7 +97,8 @@ public class TransactionDaoImpl implements TransactionDao {
                 transaction.setTransactionCode(result.getString("transactionCode"));
                 transaction.setUserId(result.getInt("userId"));
                 transaction.setShowTimeId(result.getInt("showTimeId"));
-                transaction.setTotalCost(result.getInt("totalCost"));
+                transaction.setTotalPrice(result.getInt("totalPrice"));
+                transaction.setTotalPay(result.getInt("totalPay"));
                 transaction.setStatus(result.getString("status"));
                 
                 JSONArray jsonBookingSeat = new JSONArray(result.getString("bookingSeat"));
@@ -109,7 +115,7 @@ public class TransactionDaoImpl implements TransactionDao {
                     connection.rollback();
                 } catch (Exception e) {
                 }
-                throw new TransactionException("Data Anggota dengan ID = " + id
+                throw new TransactionException("Data Transaction dengan ID = " + id
                         + " Tidak Ditemukan didalam Database");
             }
             

@@ -10,4 +10,5 @@ import java.time.LocalTime;
  */
 public interface ShowtimeDao {
     public Showtime getShowtime(Integer movieId, LocalTime time) throws ShowtimeException;
+    public void updateShowtime(Showtime showtime) throws ShowtimeException;
 }

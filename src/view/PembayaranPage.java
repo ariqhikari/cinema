@@ -2,14 +2,18 @@ package view;
 
 import controller.PembayaranController;
 import elements.TextField;
+import entity.Transaction;
+import event.TransactionListener;
 import javax.swing.JPanel;
+import model.TransactionModel;
 
 /**
  *
  * @author erwin
  */
-public class PembayaranPage extends javax.swing.JPanel {
+public class PembayaranPage extends javax.swing.JPanel implements TransactionListener{
     MainWindow window;
+    TransactionModel model;
     PembayaranController controller;
 
     /**
@@ -18,9 +22,14 @@ public class PembayaranPage extends javax.swing.JPanel {
      */
     public PembayaranPage(MainWindow window) {
         this.window = window;
-        controller = new PembayaranController();
         
         initComponents();
+        
+        model = new TransactionModel();
+        model.setListener(this);
+        
+        controller = new PembayaranController();
+        controller.setModel(model);
     }
 
     public PembayaranController getController() {
@@ -161,12 +170,18 @@ public class PembayaranPage extends javax.swing.JPanel {
         panelPrintTiket.setRoundBottomRight(40);
         panelPrintTiket.setRoundTopLeft(40);
         panelPrintTiket.setRoundTopRight(40);
+        panelPrintTiket.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelPrintTiketMouseClicked(evt);
+            }
+        });
         panelPrintTiket.setLayout(new java.awt.GridBagLayout());
 
         jLabelPrintTiket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Print Tiket.png"))); // NOI18N
         panelPrintTiket.add(jLabelPrintTiket, new java.awt.GridBagConstraints());
 
         panelPembayaran.add(panelPrintTiket, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 670, 204, 71));
+        panelPrintTiket.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-beranda.png"))); // NOI18N
         panelPembayaran.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 800));
@@ -192,6 +207,11 @@ public class PembayaranPage extends javax.swing.JPanel {
         // TODO add your handling code here:
         controller.hitungKembalian(this);
     }//GEN-LAST:event_jLabelHitungMouseClicked
+
+    private void panelPrintTiketMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelPrintTiketMouseClicked
+        // TODO add your handling code here:
+        controller.printTiket(window, this);
+    }//GEN-LAST:event_panelPrintTiketMouseClicked
 
     public JPanel getPanelPembayaran() {
         return panelPembayaran;
@@ -237,4 +257,14 @@ public class PembayaranPage extends javax.swing.JPanel {
     private elements.TextField txtTotalHarga;
     private elements.TextField txtTunai;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void onChange(TransactionModel model) {
+        this.txtTotalBayar.setText(model.getTotalPrice()+"");
+    }
+
+    @Override
+    public void onInsert(Transaction model) {
+        
+    }
 }

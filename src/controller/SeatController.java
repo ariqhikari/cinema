@@ -176,7 +176,7 @@ public class SeatController {
            transaction.setUserId(window.getModel().getId());
            transaction.setShowTimeId(showtime.getId());
            transaction.setBookingSeat(selectedSeats);
-           transaction.setTotalCost(totalPrice);
+           transaction.setTotalPrice(totalPrice);
            
            window.getWindowController().tampilHalamanPembayaran(window, movie, showtime, transaction);
         }

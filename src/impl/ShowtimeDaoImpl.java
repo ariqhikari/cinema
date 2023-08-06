@@ -5,7 +5,6 @@ import com.mysql.jdbc.Connection;  //untuk mysql neatbeans 8.2
 import java.sql.PreparedStatement;
 import entity.Showtime;
 import exception.ShowtimeException;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
@@ -23,6 +22,10 @@ public class ShowtimeDaoImpl implements ShowtimeDao{
     private final String getByMovieIdTime = "SELECT * from showtimes"
                                 + " WHERE movieId = ? AND"
                                 + " time = ?";
+    
+    private final String updateShowtime = "UPDATE showtimes "
+                                        + "SET seats=? "
+                                        + "WHERE id = ? ";
     
     public ShowtimeDaoImpl(Connection connection) {
         this.connection = connection;
@@ -66,6 +69,43 @@ public class ShowtimeDaoImpl implements ShowtimeDao{
             }
             
             return showtime;
+        } catch (SQLException ex) {
+            try {
+                connection.rollback();
+            } catch (Exception e) {
+            }
+            throw new ShowtimeException(ex.getMessage());
+        } finally {
+            try {
+                connection.setAutoCommit(true);
+            } catch (Exception e) {
+            }
+            if (statement != null) {
+                try {
+                    statement.close();
+                } catch (Exception e) {
+                }
+            }
+        }
+    }
+
+    @Override
+    public void updateShowtime(Showtime showtime) throws ShowtimeException {
+        PreparedStatement statement = null;
+        
+        try {
+            // isi statement dengan query UPDATE
+            connection.setAutoCommit(false);
+            statement = connection.prepareStatement(updateShowtime);
+            // mempersiapkan nilai yang akan ditambahkan ke tabel showtime
+            
+            JSONObject jsonSeats = new JSONObject(showtime.getSeats());
+            statement.setString(1, jsonSeats.toString());
+            
+            statement.setInt(2, showtime.getId());
+            statement.executeUpdate();
+            
+            connection.commit();
         } catch (SQLException ex) {
             try {
                 connection.rollback();
