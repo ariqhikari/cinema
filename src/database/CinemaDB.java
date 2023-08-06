@@ -1,13 +1,16 @@
 package database;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource; //untuk mysql neatbeans 8.2
-import com.mysql.jdbc.Connection; //untuk mysql neatbeans 8.2
+//import com.mysql.jdbc.jdbc2.optional.MysqlDataSource; //untuk mysql neatbeans 8.2
 
+import com.mysql.cj.jdbc.MysqlDataSource;
+//import com.mysql.jdbc.Connection; //untuk mysql neatbeans 8.2
+import java.sql.Connection;
 //import com.mysql.cj.jdbc.MysqlDataSource; //untuk mysql yang terpisah
 //import java.sql.Connection; //untuk mysql yang terpisah
 import impl.MovieDaoImpl;
 import impl.ShowtimeDaoImpl;
 import impl.UserDaoImpl;
+
 import java.sql.SQLException;
 import service.MovieDao;
 import service.ShowtimeDao;
@@ -29,9 +32,9 @@ public class CinemaDB {
             MysqlDataSource dataSource = new MysqlDataSource();
             
             // set nilai URL, username, dan password dari database
-            dataSource.setURL("jdbc:mysql://localhost:8889/cinema");
+            dataSource.setURL("jdbc:mysql://localhost:3306/cinema");
             dataSource.setUser("root");
-            dataSource.setPassword("root");
+            dataSource.setPassword("");
             
             // isi atribut connection
             connection = (Connection) dataSource.getConnection();
