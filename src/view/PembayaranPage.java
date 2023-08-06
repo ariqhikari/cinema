@@ -4,6 +4,8 @@
  */
 package view;
 
+import elements.TextField;
+
 /**
  *
  * @author erwin
@@ -17,6 +19,40 @@ public class PembayaranPage extends javax.swing.JPanel {
         initComponents();
     }
 
+    public TextField getTextFieldDetailPembelian() {
+        return textFieldDetailPembelian;
+    }
+
+    public void setTextFieldDetailPembelian(TextField textFieldDetailPembelian) {
+        this.textFieldDetailPembelian = textFieldDetailPembelian;
+    }
+
+    public TextField getTextFieldKembaliam() {
+        return textFieldKembalian;
+    }
+
+    public void setTextFieldKembaliam(TextField textFieldKembaliam) {
+        this.textFieldKembalian = textFieldKembaliam;
+    }
+
+    public TextField getTextFieldTotalharga() {
+        return textFieldTotalharga;
+    }
+
+    public void setTextFieldTotalharga(TextField textFieldTotalharga) {
+        this.textFieldTotalharga = textFieldTotalharga;
+    }
+
+    public TextField getTextFieldTunai() {
+        return textFieldTunai;
+    }
+
+    public void setTextFieldTunai(TextField textFieldTunai) {
+        this.textFieldTunai = textFieldTunai;
+    }
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,10 +62,10 @@ public class PembayaranPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        textField1 = new elements.TextField();
-        textField2 = new elements.TextField();
-        textField3 = new elements.TextField();
-        textField4 = new elements.TextField();
+        textFieldKembalian = new elements.TextField();
+        textFieldDetailPembelian = new elements.TextField();
+        textFieldTotalharga = new elements.TextField();
+        textFieldTunai = new elements.TextField();
         panelRound2 = new elements.PanelRound();
         jLabelHitung = new javax.swing.JLabel();
         jLabelDetailPemblian = new javax.swing.JLabel();
@@ -42,25 +78,25 @@ public class PembayaranPage extends javax.swing.JPanel {
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        textField1.setBackground(new java.awt.Color(109, 218, 247));
-        textField1.setRound(50);
-        textField1.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 667, 71));
+        textFieldKembalian.setBackground(new java.awt.Color(109, 218, 247));
+        textFieldKembalian.setRound(50);
+        textFieldKembalian.setShadowColor(new java.awt.Color(141, 225, 243));
+        add(textFieldKembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 480, 667, 71));
 
-        textField2.setBackground(new java.awt.Color(109, 218, 247));
-        textField2.setRound(50);
-        textField2.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 667, 71));
+        textFieldDetailPembelian.setBackground(new java.awt.Color(109, 218, 247));
+        textFieldDetailPembelian.setRound(50);
+        textFieldDetailPembelian.setShadowColor(new java.awt.Color(141, 225, 243));
+        add(textFieldDetailPembelian, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, 667, 71));
 
-        textField3.setBackground(new java.awt.Color(109, 218, 247));
-        textField3.setRound(50);
-        textField3.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 667, 71));
+        textFieldTotalharga.setBackground(new java.awt.Color(109, 218, 247));
+        textFieldTotalharga.setRound(50);
+        textFieldTotalharga.setShadowColor(new java.awt.Color(141, 225, 243));
+        add(textFieldTotalharga, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 667, 71));
 
-        textField4.setBackground(new java.awt.Color(109, 218, 247));
-        textField4.setRound(50);
-        textField4.setShadowColor(new java.awt.Color(141, 225, 243));
-        add(textField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 667, 71));
+        textFieldTunai.setBackground(new java.awt.Color(109, 218, 247));
+        textFieldTunai.setRound(50);
+        textFieldTunai.setShadowColor(new java.awt.Color(141, 225, 243));
+        add(textFieldTunai, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 360, 667, 71));
 
         panelRound2.setBackground(new java.awt.Color(251, 99, 199));
         panelRound2.setRoundBottomLeft(40);
@@ -70,6 +106,11 @@ public class PembayaranPage extends javax.swing.JPanel {
         panelRound2.setLayout(new java.awt.GridBagLayout());
 
         jLabelHitung.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Hitung.png"))); // NOI18N
+        jLabelHitung.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHitungMouseClicked(evt);
+            }
+        });
         panelRound2.add(jLabelHitung, new java.awt.GridBagConstraints());
 
         add(panelRound2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 260, 204, 71));
@@ -91,6 +132,11 @@ public class PembayaranPage extends javax.swing.JPanel {
         panelRound5.setRoundBottomRight(40);
         panelRound5.setRoundTopLeft(40);
         panelRound5.setRoundTopRight(40);
+        panelRound5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelRound5MouseClicked(evt);
+            }
+        });
         panelRound5.setLayout(new java.awt.GridBagLayout());
 
         jLabelPrintTiket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Print Tiket.png"))); // NOI18N
@@ -101,6 +147,14 @@ public class PembayaranPage extends javax.swing.JPanel {
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-beranda.png"))); // NOI18N
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, -1, 820));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabelHitungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHitungMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabelHitungMouseClicked
+
+    private void panelRound5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound5MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_panelRound5MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -113,9 +167,9 @@ public class PembayaranPage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelTunai;
     private elements.PanelRound panelRound2;
     private elements.PanelRound panelRound5;
-    private elements.TextField textField1;
-    private elements.TextField textField2;
-    private elements.TextField textField3;
-    private elements.TextField textField4;
+    private elements.TextField textFieldDetailPembelian;
+    private elements.TextField textFieldKembalian;
+    private elements.TextField textFieldTotalharga;
+    private elements.TextField textFieldTunai;
     // End of variables declaration//GEN-END:variables
 }
