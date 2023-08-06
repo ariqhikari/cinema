@@ -8,12 +8,12 @@ package view;
  *
  * @author erwin
  */
-public class DetailTiketView extends javax.swing.JPanel {
+public class DetailTiketPage extends javax.swing.JPanel {
 
     /**
      * Creates new form DetailTiketView
      */
-    public DetailTiketView() {
+    public DetailTiketPage() {
         initComponents();
     }
 
