@@ -41,8 +41,8 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         
         initComponents();
         
-        txtUsername.setBackground(new java.awt.Color(0,0,0,1));
-        txtPassword.setBackground((new java.awt.Color(0,0,0,1)));
+//        txtUsername.setBackground(new java.awt.Color(0,0,0,1));
+//        txtPassword.setBackground((new java.awt.Color(0,0,0,1)));
         
         // tambahkan kode agar frame tidak bisa diubah ukuran
         setExtendedState(JFrame.MAXIMIZED_HORIZ);
@@ -77,12 +77,10 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
 
         panelMain = new javax.swing.JPanel();
         panelLogin = new javax.swing.JPanel();
+        txtUsername = new elements.TextField();
+        txtPassword = new elements.PasswordField();
         panelBtnLogin = new elements.PanelRound();
         jLabelLogin = new javax.swing.JLabel();
-        panelRoundUsername = new elements.PanelRound();
-        txtUsername = new javax.swing.JTextField();
-        panelRoundPassword = new elements.PanelRound();
-        txtPassword = new javax.swing.JPasswordField();
         jLabelPassword = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
         jLabelDescription = new javax.swing.JLabel();
@@ -99,6 +97,27 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
 
         panelLogin.setBackground(new java.awt.Color(0, 25, 83));
         panelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtUsername.setBackground(new java.awt.Color(109, 218, 247));
+        txtUsername.setPreferredSize(new java.awt.Dimension(65, 25));
+        txtUsername.setRound(30);
+        txtUsername.setShadowColor(new java.awt.Color(141, 225, 243));
+        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsernameActionPerformed(evt);
+            }
+        });
+        panelLogin.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 320, 60));
+
+        txtPassword.setBackground(new java.awt.Color(109, 218, 247));
+        txtPassword.setPreferredSize(new java.awt.Dimension(65, 25));
+        txtPassword.setRound(30);
+        txtPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPasswordActionPerformed(evt);
+            }
+        });
+        panelLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 320, 60));
 
         panelBtnLogin.setBackground(new java.awt.Color(22, 55, 128));
         panelBtnLogin.setRoundBottomLeft(30);
@@ -125,41 +144,6 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         panelBtnLogin.add(jLabelLogin, "card2");
 
         panelLogin.add(panelBtnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, 310, 60));
-
-        panelRoundUsername.setBackground(new java.awt.Color(109, 218, 247));
-        panelRoundUsername.setRoundBottomLeft(30);
-        panelRoundUsername.setRoundBottomRight(30);
-        panelRoundUsername.setRoundTopLeft(30);
-        panelRoundUsername.setRoundTopRight(30);
-        panelRoundUsername.setLayout(new java.awt.CardLayout());
-
-        txtUsername.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
-        txtUsername.setBorder(null);
-        panelRoundUsername.add(txtUsername, "card2");
-        txtUsername.setBackground(new java.awt.Color(0,0,0,1));
-
-        panelLogin.add(panelRoundUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 320, 60));
-
-        panelRoundPassword.setBackground(new java.awt.Color(109, 218, 247));
-        panelRoundPassword.setRoundBottomLeft(30);
-        panelRoundPassword.setRoundBottomRight(30);
-        panelRoundPassword.setRoundTopLeft(30);
-        panelRoundPassword.setRoundTopRight(30);
-        panelRoundPassword.setLayout(new java.awt.CardLayout());
-
-        txtPassword.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtPassword.setBorder(null);
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
-        panelRoundPassword.add(txtPassword, "card2");
-        txtPassword.setBackground(new java.awt.Color(0,0,0,1));
-
-        panelLogin.add(panelRoundPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 320, 60));
 
         jLabelPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Password.png"))); // NOI18N
         panelLogin.add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
@@ -200,6 +184,10 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         // TODO add your handling code here:
         login();
     }//GEN-LAST:event_panelBtnLoginMouseClicked
+
+    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsernameActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
@@ -281,10 +269,8 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
     private elements.PanelRound panelBtnLogin;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelMain;
-    private elements.PanelRound panelRoundPassword;
-    private elements.PanelRound panelRoundUsername;
-    private javax.swing.JPasswordField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    private elements.PasswordField txtPassword;
+    private elements.TextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
     @Override
