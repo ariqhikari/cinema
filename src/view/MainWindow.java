@@ -39,11 +39,9 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         windowController.setSeatPage(new SeatPage(this));
         windowController.setPembayaranPage(new PembayaranPage(this));
         windowController.setDetailTiketPage(new DetailTiketPage(this));
+        windowController.setHistoryTicketPage(new HistoryTicketPage(this));
         
         initComponents();
-        
-//        txtUsername.setBackground(new java.awt.Color(0,0,0,1));
-//        txtPassword.setBackground((new java.awt.Color(0,0,0,1)));
         
         // tambahkan kode agar frame tidak bisa diubah ukuran
         setExtendedState(JFrame.MAXIMIZED_HORIZ);

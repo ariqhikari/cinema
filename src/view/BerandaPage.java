@@ -174,11 +174,7 @@ public class BerandaPage extends javax.swing.JPanel {
             Image scaledPoster = roundedPosterImage.getScaledInstance(250, 400, Image.SCALE_SMOOTH);
             ImageIcon iconPoster = new ImageIcon(scaledPoster);
             poster.setPreferredSize(new Dimension(250, 400));
-            ImageIcon posterIcon;
-            posterIcon = new ImageIcon(icon);
-
             poster.setIcon(iconPoster);
-            poster.setBounds(0, 0, 250, 400);
             
             poster.setCursor(new Cursor(Cursor.HAND_CURSOR));
             poster.addMouseListener(new MouseListener() {

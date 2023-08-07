@@ -72,6 +72,7 @@ public class UserModel {
         
         User user = dao.getUser(this.username, this.password);
         this.setId(user.getId());
+        this.setName(user.getName());
     }
     
     protected void fireOnChange() {

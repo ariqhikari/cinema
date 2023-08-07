@@ -91,6 +91,11 @@ public class PembayaranController {
             return;
         }
         
+        if(pembayaranPage.getTxtKembalian().getText().isEmpty()) {
+            JOptionPane.showMessageDialog(pembayaranPage, "HITUNG KEMBALIAN TERLEBIH DAHULU");
+            return;
+        }
+        
         int kembalian = Integer.valueOf(pembayaranPage.getTxtTotalBayar().getText()) - transaction.getTotalPrice();
         
         if(kembalian < 0) {
@@ -99,12 +104,15 @@ public class PembayaranController {
         } 
         
         // insert transaction
-        model.setTransactionCode("TRS-" + generateRandomNumber(000, 99999999));
+        transaction.setTransactionCode("CODE-" + generateRandomNumber(000, 99999999));
+        transaction.setTotalPay(Integer.valueOf(pembayaranPage.getTxtTotalBayar().getText()));
+        
+        model.setTransactionCode(transaction.getTransactionCode());
         model.setUserId(transaction.getUserId());
         model.setShowTimeId(transaction.getShowTimeId());
         model.setBookingSeat(transaction.getBookingSeat());
         model.setTotalPrice(transaction.getTotalPrice());
-        model.setTotalPay(Integer.valueOf(pembayaranPage.getTxtTotalBayar().getText()));
+        model.setTotalPay(transaction.getTotalPay());
         
         Map<String, Object> seats = showtime.getSeats();
         transaction.getBookingSeat().forEach((seat) -> { 
@@ -115,7 +123,7 @@ public class PembayaranController {
         try {
             model.insertTransaction(showtime);
             JOptionPane.showMessageDialog(window, "DATA TRANSACTION BERHASIL DISIMPAN");
-            window.getWindowController().tampilHalamanDetailTiket(window);            
+            window.getWindowController().tampilHalamanDetailTiket(window, movie, showtime, transaction);            
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(window, new Object[]{
                 "TERJADI ERROR DI DATABASE DENGAN PESAN ", ex.getMessage()

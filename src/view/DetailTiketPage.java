@@ -1,9 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package view;
 
+import controller.DetailTiketController;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
@@ -12,6 +10,7 @@ import javax.swing.JPanel;
  */
 public class DetailTiketPage extends javax.swing.JPanel {
     MainWindow window;
+    DetailTiketController controller;
 
     /**
      * Creates new form DetailTiketView
@@ -19,7 +18,13 @@ public class DetailTiketPage extends javax.swing.JPanel {
      */
     public DetailTiketPage(MainWindow window) {
         this.window = window;
+        controller = new DetailTiketController();
+        
         initComponents();
+    }
+
+    public DetailTiketController getController() {
+        return controller;
     }
     
     
@@ -34,7 +39,7 @@ public class DetailTiketPage extends javax.swing.JPanel {
     private void initComponents() {
 
         panelDetailTiket = new javax.swing.JPanel();
-        jLabelNomorOrder = new javax.swing.JLabel();
+        panelPoster = new javax.swing.JPanel();
         jLabelPoster = new javax.swing.JLabel();
         LabelStudio = new javax.swing.JLabel();
         jLabelJumlahTiket = new javax.swing.JLabel();
@@ -44,24 +49,21 @@ public class DetailTiketPage extends javax.swing.JPanel {
         LabelKodeBooking = new javax.swing.JLabel();
         jLabelKodeBooking = new javax.swing.JLabel();
         jLabelTitleMovie = new javax.swing.JLabel();
-        LabelNomorOrder = new javax.swing.JLabel();
         btnNext = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         labelPutih = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabelBg = new javax.swing.JLabel();
 
         setLayout(new java.awt.CardLayout());
 
         panelDetailTiket.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelNomorOrder.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
-        jLabelNomorOrder.setForeground(new java.awt.Color(252, 255, 116));
-        jLabelNomorOrder.setText("1654861705810980864");
-        panelDetailTiket.add(jLabelNomorOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 730, -1, -1));
+        panelPoster.setLayout(new java.awt.CardLayout());
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster-movie.jpeg"))); // NOI18N
-        panelDetailTiket.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        panelPoster.add(jLabelPoster, "card2");
+
+        panelDetailTiket.add(panelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
         LabelStudio.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         LabelStudio.setForeground(new java.awt.Color(255, 255, 255));
@@ -81,7 +83,7 @@ public class DetailTiketPage extends javax.swing.JPanel {
         jLabelDateTime.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabelDateTime.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDateTime.setText("19 Juli 2023 10:00");
-        panelDetailTiket.add(jLabelDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, -1));
+        panelDetailTiket.add(jLabelDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, -1, -1));
 
         LabelFiveCinema.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         LabelFiveCinema.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,11 +105,6 @@ public class DetailTiketPage extends javax.swing.JPanel {
         jLabelTitleMovie.setText("Barbie");
         panelDetailTiket.add(jLabelTitleMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
 
-        LabelNomorOrder.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
-        LabelNomorOrder.setForeground(new java.awt.Color(252, 255, 116));
-        LabelNomorOrder.setText("NOMOR ORDER");
-        panelDetailTiket.add(LabelNomorOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 730, -1, -1));
-
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Right.png"))); // NOI18N
         btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNext.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -123,9 +120,6 @@ public class DetailTiketPage extends javax.swing.JPanel {
         labelPutih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Rectangle 745 (1).png"))); // NOI18N
         panelDetailTiket.add(labelPutih, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 1100, 230));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/iconCopy.png"))); // NOI18N
-        panelDetailTiket.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 730, 50, 50));
-
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-description.png"))); // NOI18N
         panelDetailTiket.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -133,31 +127,61 @@ public class DetailTiketPage extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseClicked
-//        // TODO add your handling code here:
-//        window.getWindowController().tampilHalamanBeranda(window);
+        // TODO add your handling code here:
+        window.getWindowController().tampilHalamanHistoryTicket(window, controller.getMovie(), controller.getShowtime(), controller.getTransaction());
     }//GEN-LAST:event_btnNextMouseClicked
 
     public JPanel getPanelDetailTiket() {
         return panelDetailTiket;
     }
 
+    public JLabel getLabelKodeBooking() {
+        return LabelKodeBooking;
+    }
+
+    public JLabel getjLabelDateTime() {
+        return jLabelDateTime;
+    }
+
+    public JLabel getjLabelJumlahTiket() {
+        return jLabelJumlahTiket;
+    }
+
+    public JLabel getjLabelKodeBooking() {
+        return jLabelKodeBooking;
+    }
+
+    public JLabel getjLabelKursi() {
+        return jLabelKursi;
+    }
+
+    public JLabel getjLabelPoster() {
+        return jLabelPoster;
+    }
+
+    public JLabel getjLabelTitleMovie() {
+        return jLabelTitleMovie;
+    }
+
+    public JPanel getPanelPoster() {
+        return panelPoster;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelFiveCinema;
     private javax.swing.JLabel LabelKodeBooking;
-    private javax.swing.JLabel LabelNomorOrder;
     private javax.swing.JLabel LabelStudio;
     private javax.swing.JLabel btnNext;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelBg;
     private javax.swing.JLabel jLabelDateTime;
     private javax.swing.JLabel jLabelJumlahTiket;
     private javax.swing.JLabel jLabelKodeBooking;
     private javax.swing.JLabel jLabelKursi;
-    private javax.swing.JLabel jLabelNomorOrder;
     private javax.swing.JLabel jLabelPoster;
     private javax.swing.JLabel jLabelTitleMovie;
     private javax.swing.JLabel labelPutih;
     private javax.swing.JLabel logo;
     private javax.swing.JPanel panelDetailTiket;
+    private javax.swing.JPanel panelPoster;
     // End of variables declaration//GEN-END:variables
 }

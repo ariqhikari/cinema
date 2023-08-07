@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import controller.DetailMovieController;
 import java.awt.AlphaComposite;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -94,6 +90,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jLabelDate = new javax.swing.JLabel();
         labelTanggalRilis = new javax.swing.JLabel();
         jLabelTitle = new javax.swing.JLabel();
+        panelPoster = new javax.swing.JPanel();
         jLabelPoster = new javax.swing.JLabel();
         logo = new javax.swing.JLabel();
         jLabelBg = new javax.swing.JLabel();
@@ -405,8 +402,12 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jLabelTitle.setText("BARBIE");
         panelDetailMovie.add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
+        panelPoster.setLayout(new java.awt.CardLayout());
+
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster-movie.jpeg"))); // NOI18N
-        panelDetailMovie.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        panelPoster.add(jLabelPoster, "card2");
+
+        panelDetailMovie.add(panelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.png"))); // NOI18N
         panelDetailMovie.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
@@ -560,17 +561,18 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jLabelPrice.setText(controller.getMovie().getPriceString());
         jTextAreaDescription.setText(controller.getMovie().getDescription());
         jLabelRating.setText(Double.toString(controller.getMovie().getRating()));
-        
-//        // poster
+
+        // poster
+        panelPoster.setLayout(new CardLayout(10, 10));
+        panelPoster.setPreferredSize(new Dimension(250, 300));
+        panelPoster.setBackground(new java.awt.Color(0,0,0,1));
+
         BufferedImage icon = ImageIO.read(getClass().getResource(controller.getMovie().getPoster()));              
         BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
-        Image scaledPoster = roundedPosterImage.getScaledInstance(250, 280, Image.SCALE_SMOOTH);
+        Image scaledPoster = roundedPosterImage.getScaledInstance(250, 350, Image.SCALE_SMOOTH);
         ImageIcon iconPoster = new ImageIcon(scaledPoster);
-        jLabelPoster.setPreferredSize(new Dimension(250, 280));
-        ImageIcon posterIcon;
-        posterIcon = new ImageIcon(icon);
-        jLabelPoster.setIcon(posterIcon);
-        jLabelPoster.setBounds(0, 0, 250, 280);
+        jLabelPoster.setPreferredSize(new Dimension(250, 300));
+        jLabelPoster.setIcon(iconPoster);
         
         int rating = (int) controller.getMovie().getRating();
         if(rating >= 1) {
@@ -590,7 +592,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         }
     }
     
-      public BufferedImage makeRoundedCorner(BufferedImage image, int cornerRadius) {
+    public BufferedImage makeRoundedCorner(BufferedImage image, int cornerRadius) {
         int w = image.getWidth();
         int h = image.getHeight();
         BufferedImage output = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
@@ -660,6 +662,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
     private javax.swing.JPanel panelBookingTime22;
     private javax.swing.JPanel panelBookingTime8;
     private javax.swing.JPanel panelDetailMovie;
+    private javax.swing.JPanel panelPoster;
     private javax.swing.JLabel star1;
     private javax.swing.JLabel star2;
     private javax.swing.JLabel star3;
