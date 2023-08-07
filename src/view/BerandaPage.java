@@ -26,6 +26,7 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import service.MovieDao;
@@ -64,6 +65,7 @@ public class BerandaPage extends javax.swing.JPanel {
         panelBeranda = new javax.swing.JPanel();
         jScrollPanelMovie = new javax.swing.JScrollPane();
         panelMovie = new javax.swing.JPanel();
+        jLabelLogout = new javax.swing.JLabel();
         jLabelPoster = new javax.swing.JLabel();
         faqBtn = new javax.swing.JLabel();
         categoriesBtn = new javax.swing.JLabel();
@@ -105,10 +107,25 @@ public class BerandaPage extends javax.swing.JPanel {
         jScrollPanelMovie.setBorder(BorderFactory.createEmptyBorder());
         jScrollPanelMovie.setOpaque(false);
 
+        jLabelLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logout.png"))); // NOI18N
+        jLabelLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelLogoutMouseClicked(evt);
+            }
+        });
+        panelBeranda.add(jLabelLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 40, -1, -1));
+
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster.jpeg"))); // NOI18N
         panelBeranda.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         faqBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fq.png"))); // NOI18N
+        faqBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        faqBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                faqBtnMouseClicked(evt);
+            }
+        });
         panelBeranda.add(faqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 710, -1, -1));
 
         categoriesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Category.png"))); // NOI18N
@@ -137,6 +154,19 @@ public class BerandaPage extends javax.swing.JPanel {
 
         add(panelBeranda, "card13");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void faqBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faqBtnMouseClicked
+        // TODO add your handling code here:
+        window.getWindowController().tampilHalamanAnggotaKelompok(window);
+    }//GEN-LAST:event_faqBtnMouseClicked
+
+    private void jLabelLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLogoutMouseClicked
+        // TODO add your handling code here:
+        int opsi = JOptionPane.showConfirmDialog(null, "Apakah anda ingin keluar dari akun ?", "Logout Akun", JOptionPane.YES_NO_OPTION);
+        if (opsi == JOptionPane.YES_OPTION) {
+            window.getWindowController().tampilHalamanLogin(window);
+        }
+    }//GEN-LAST:event_jLabelLogoutMouseClicked
 
     public void loadDatabase() throws SQLException, MovieException, IOException {
         MovieDao dao = CinemaDB.getMovie();
@@ -241,6 +271,7 @@ public class BerandaPage extends javax.swing.JPanel {
     private javax.swing.JLabel categoriesBtn;
     private javax.swing.JLabel faqBtn;
     private javax.swing.JLabel homeBtn;
+    private javax.swing.JLabel jLabelLogout;
     private javax.swing.JLabel jLabelPoster;
     private javax.swing.JScrollPane jScrollPanelMovie;
     private javax.swing.JLabel judulFrame;

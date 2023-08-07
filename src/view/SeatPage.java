@@ -23,9 +23,8 @@ public class SeatPage extends javax.swing.JPanel {
      */
     public SeatPage(MainWindow window) {
         this.window = window;
-        controller = new SeatController();
-        
         initComponents();
+        controller = new SeatController(this);
     }
 
     public JPanel getPanelSeat() {
@@ -125,194 +124,242 @@ public class SeatPage extends javax.swing.JPanel {
         panelSeat.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
         seatF6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatF6.setToolTipText("F6");
         seatF6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatF6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 180, -1, -1));
 
         seatF5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatF5.setToolTipText("F5");
         seatF5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatF5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 180, -1, -1));
 
         seatF4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatF4.setToolTipText("F4");
         seatF4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatF4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 180, -1, -1));
 
         seatF3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatF3.setToolTipText("F3");
         seatF3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatF3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
 
         seatF2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatF2.setToolTipText("F2");
         seatF2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatF2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, -1, -1));
 
         seatF1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatF1.setToolTipText("F1");
         seatF1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatF1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
 
         seatE8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE8.setToolTipText("E8");
         seatE8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE8, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, -1, -1));
 
         seatE7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE7.setToolTipText("E7");
         seatE7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE7, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 250, -1, -1));
 
         seatE6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE6.setToolTipText("E6");
         seatE6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 250, -1, -1));
 
         seatE5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE5.setToolTipText("E5");
         seatE5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 250, -1, -1));
 
         seatE4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE4.setToolTipText("E4");
         seatE4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, -1, -1));
 
         seatE3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE3.setToolTipText("E3");
         seatE3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, -1, -1));
 
         seatE2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE2.setToolTipText("E2");
         seatE2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, -1, -1));
 
         seatE1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatE1.setToolTipText("E1");
         seatE1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, -1, -1));
 
         seatD8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD8.setToolTipText("D8");
         seatD8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD8, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 340, -1, -1));
 
         seatD7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD7.setToolTipText("D7");
         seatD7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD7, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 340, -1, -1));
 
         seatD6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD6.setToolTipText("D6");
         seatD6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
 
         seatD5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD5.setToolTipText("D5");
         seatD5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD5, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, -1, -1));
 
         seatD4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD4.setToolTipText("D4");
         seatD4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
         seatD3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD3.setToolTipText("D3");
         seatD3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
 
         seatD2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD2.setToolTipText("D2");
         seatD2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
 
         seatD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatD1.setToolTipText("D1");
         seatD1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
 
         seatC9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC9.setToolTipText("C9");
         seatC9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC9, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 420, -1, -1));
 
         seatC8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC8.setToolTipText("C8");
         seatC8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC8, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 420, -1, -1));
 
         seatC7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC7.setToolTipText("C7");
         seatC7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 420, -1, -1));
 
         seatC6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC6.setToolTipText("C6");
         seatC6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, -1, -1));
 
         seatC5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC5.setToolTipText("C5");
         seatC5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 420, -1, -1));
 
         seatC4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC4.setToolTipText("C4");
         seatC4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, -1, -1));
 
         seatC3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC3.setToolTipText("C3");
         seatC3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, -1, -1));
 
         seatC2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC2.setToolTipText("C2");
         seatC2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, -1, -1));
 
         seatC1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatC1.setToolTipText("C1");
         seatC1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, -1, -1));
 
         seatB9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB9.setToolTipText("B9");
         seatB9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB9, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 490, -1, -1));
 
         seatB8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB8.setToolTipText("B8");
         seatB8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB8, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 490, -1, -1));
 
         seatB7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB7.setToolTipText("B7");
         seatB7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 490, -1, -1));
 
         seatB6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB6.setToolTipText("B6");
         seatB6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 490, -1, -1));
 
         seatB5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB5.setToolTipText("B5");
         seatB5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, -1, -1));
 
         seatB4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB4.setToolTipText("B4");
         seatB4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, -1, -1));
 
         seatB3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB3.setToolTipText("B3");
         seatB3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 490, -1, -1));
 
         seatB2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB2.setToolTipText("B2");
         seatB2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 490, -1, -1));
 
         seatB1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatB1.setToolTipText("B1");
         seatB1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, -1, -1));
 
         seatA9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA9.setToolTipText("A9");
         seatA9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatA9, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 570, -1, -1));
 
         seatA8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA8.setToolTipText("A8");
         seatA8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatA8, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 570, -1, -1));
 
         seatA7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA7.setToolTipText("A7");
         seatA7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatA7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 570, -1, -1));
 
         seatA6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA6.setToolTipText("A6");
         seatA6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatA6, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 570, -1, -1));
 
         seatA5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA5.setToolTipText("A5");
         seatA5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatA5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, -1, -1));
 
         seatA4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA4.setToolTipText("A4");
         seatA4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatA4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 570, -1, -1));
 
         seatA3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA3.setToolTipText("A3");
         seatA3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelSeat.add(seatA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 570, -1, -1));
 
         seatA2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA2.setToolTipText("A2");
         seatA2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         seatA2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -322,6 +369,7 @@ public class SeatPage extends javax.swing.JPanel {
         panelSeat.add(seatA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 570, -1, -1));
 
         seatA1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png"))); // NOI18N
+        seatA1.setToolTipText("A1");
         seatA1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         seatA1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -422,6 +470,7 @@ public class SeatPage extends javax.swing.JPanel {
         try {
             // TODO add your handling code here:
             window.getWindowController().tampilHalamanDetailMovie(window, controller.getMovie());
+            controller.clearData(this);
         } catch (IOException ex) {
             Logger.getLogger(SeatPage.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -443,9 +492,7 @@ public class SeatPage extends javax.swing.JPanel {
     public void loadDatabase(int movieId, LocalTime time) throws SQLException, ShowtimeException {
         ShowtimeDao dao = CinemaDB.getShowtime();
         Showtime showtime = dao.getShowtime(movieId, time);
-        controller.setShowtime(showtime); 
-        controller.setSeat(this);
-        controller.setDetail(this);
+        controller.setShowtime(this, showtime); 
     }
 
     public JLabel getSeatA1() {

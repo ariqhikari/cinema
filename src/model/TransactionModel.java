@@ -95,6 +95,17 @@ public class TransactionModel {
         this.listener = listener;
     }
     
+    public void reset() {
+        this.setId(0);
+        this.setTransactionCode("");
+        this.setUserId(0);
+        this.setShowTimeId(0);
+        this.setBookingSeat(null); 
+        this.setTotalPrice(0);
+        this.setTotalPay(0);
+        this.fireOnChange();
+    }
+    
     public void insertTransaction(Showtime showtime) throws SQLException, TransactionException, ShowtimeException {
         TransactionDao transactionDao = CinemaDB.getTransaction();
         ShowtimeDao showtimeDao = CinemaDB.getShowtime();

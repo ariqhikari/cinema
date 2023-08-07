@@ -192,6 +192,7 @@ public class PembayaranPage extends javax.swing.JPanel implements TransactionLis
     private void btnBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBackMouseClicked
         // TODO add your handling code here:
         window.getWindowController().tampilHalamanKursi(window, controller.getMovie(), controller.getShowtime().getTime());
+        controller.clearData(this);
     }//GEN-LAST:event_btnBackMouseClicked
 
     private void panelHitungMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelHitungMouseClicked

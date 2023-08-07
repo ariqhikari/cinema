@@ -5,6 +5,7 @@ import controller.UserController;
 import event.UserListener;
 import java.awt.Cursor;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -31,6 +32,8 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         windowController.setPembayaranPage(new PembayaranPage(this));
         windowController.setDetailTiketPage(new DetailTiketPage(this));
         windowController.setHistoryTicketPage(new HistoryTicketPage(this));
+        windowController.setAnggotaKelompokPage(new AnggotaKelompokPage(this));
+        windowController.setPenutupPage(new PenutupPage(this));
         
         initComponents();
         
@@ -55,6 +58,12 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
     public JTextField getTxtUsername() {
         return txtUsername;
     }
+
+    public UserController getController() {
+        return controller;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -245,6 +254,12 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
             windowController.tampilHalamanBeranda(this);
         }
     }
+
+    public JLabel getjLabelLogin() {
+        return jLabelLogin;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabelBg;

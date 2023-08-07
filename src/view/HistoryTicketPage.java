@@ -115,7 +115,7 @@ public class HistoryTicketPage extends javax.swing.JPanel {
 
         jLabelTitle.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         jLabelTitle.setText("BARBIE");
-        jPanel1.add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 40, -1, -1));
+        jPanel1.add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 40, 390, -1));
 
         star2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/star.png"))); // NOI18N
         jPanel1.add(star2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));

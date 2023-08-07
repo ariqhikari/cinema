@@ -1,11 +1,16 @@
 package view;
 
+import javax.swing.JPanel;
+
 public class PenutupPage extends javax.swing.JPanel {
+    MainWindow window;
 
     /**
      * Creates new form PenutupPage
+     * @param window
      */
-    public PenutupPage() {
+    public PenutupPage(MainWindow window) {
+        this.window = window;
         initComponents();
     }
 
@@ -18,7 +23,7 @@ public class PenutupPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelPenutup = new javax.swing.JPanel();
         btnprev = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -26,31 +31,45 @@ public class PenutupPage extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelPenutup.setPreferredSize(new java.awt.Dimension(1200, 800));
+        panelPenutup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnprev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Left.png"))); // NOI18N
-        jPanel1.add(btnprev, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, -1, -1));
+        btnprev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprev.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnprevMouseClicked(evt);
+            }
+        });
+        panelPenutup.add(btnprev, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Group 5.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        panelPenutup.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/5desc.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, 290, 590));
+        panelPenutup.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, 290, 590));
 
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-description.png"))); // NOI18N
-        jPanel1.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelPenutup.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        add(jPanel1, "card2");
+        add(panelPenutup, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnprevMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprevMouseClicked
+        // TODO add your handling code here:
+        window.getWindowController().tampilHalamanAnggotaKelompok(window);
+    }//GEN-LAST:event_btnprevMouseClicked
 
+    public JPanel getPanelPenutup() {
+        return panelPenutup;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnprev;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelBg;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelPenutup;
     // End of variables declaration//GEN-END:variables
 }

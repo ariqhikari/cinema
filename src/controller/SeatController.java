@@ -25,9 +25,14 @@ public class SeatController {
     private Showtime showtime;
     private List<String> selectedSeats;
     private int totalPrice = 0;
-
-    public SeatController() {
+    private Map<String, JLabel> seatsMap;
+        
+    public SeatController(SeatPage seatPage) {
         this.selectedSeats = new ArrayList<>();
+        this.seatsMap = getSeatsMap(seatPage);
+        for (Map.Entry<String,JLabel> seat : seatsMap.entrySet()) {
+            seat.getValue().addMouseListener(getMouseAdapter(seatPage));
+        }
     }
 
     public Movie getMovie() {
@@ -42,8 +47,10 @@ public class SeatController {
         return showtime;
     }
 
-    public void setShowtime(Showtime showtime) {
+    public void setShowtime(SeatPage seatPage, Showtime showtime) {
         this.showtime = showtime;
+        setSeat(seatPage);
+        setDetail(seatPage);
     }
     
     public void setDetail(SeatPage seatPage) {
@@ -136,32 +143,37 @@ public class SeatController {
     public void setSeat(SeatPage seatPage) {
         // A1 A9 - C9
         // D1 D8 - E8
-        // F1 F6
-        Map<String, JLabel> seatsMap = getSeatsMap(seatPage);
-                
+        // F1 F6         
         for (Map.Entry<String,Object> entry : showtime.getSeats().entrySet()) {
             JLabel seat = seatsMap.get(entry.getKey());
-            if(entry.getValue().equals(true)) {
+            if(showtime.getSeats().get(entry.getKey()).equals(true)) {
                 seat.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
                 seat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/reserved seat.png")));
-            } else {
-                seat.addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent me) {
-                        if(selectedSeats.contains(entry.getKey())) {
-                            selectedSeats.remove(entry.getKey());
-                            seat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png")));
-                        } else {
-                            selectedSeats.add(entry.getKey());
-                            seat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/selected seat.png")));
-                        }
-                        
-                        totalPrice = movie.getPrice() * selectedSeats.size();
-                        setDetail(seatPage);
-                    } 
-                });
             }
         }
+    }
+    
+    public MouseAdapter getMouseAdapter(SeatPage seatPage) {
+        return new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                String seatKey = ((JLabel)me.getSource()).getToolTipText();
+                JLabel seat = seatsMap.get(seatKey);
+                if(showtime.getSeats().get(seatKey).equals(true)) {
+                        return;
+                }
+                        
+                if(selectedSeats.contains(seatKey)) {
+                    selectedSeats.remove(seatKey);
+                    seat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png")));
+                } else {
+                    selectedSeats.add(seatKey);
+                    seat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/selected seat.png")));
+                }        
+                totalPrice = movie.getPrice() * selectedSeats.size();
+                setDetail(seatPage);
+            } 
+        };
     }
     
     public void buyTicket(MainWindow window) {
@@ -176,5 +188,24 @@ public class SeatController {
            
            window.getWindowController().tampilHalamanPembayaran(window, movie, showtime, transaction);
         }
+    }
+    
+    public void clearData(SeatPage seatPage) {
+        Map<String, JLabel> seatsMap = getSeatsMap(seatPage);
+                
+        for (Map.Entry<String,Object> entry : showtime.getSeats().entrySet()) {
+            JLabel seat = seatsMap.get(entry.getKey());
+            seat.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            seat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/available seat.png")));
+        }
+        
+        movie = null;
+        showtime = null;
+        selectedSeats = new ArrayList<>();
+        totalPrice = 0;
+        seatPage.getjLabelDate().setText(getDate(new Date()));
+        seatPage.getjLabelTime().setText("");
+        seatPage.getjLabelSelectedSeats().setText("");
+        seatPage.getjLabelTotal().setText("");
     }
 }

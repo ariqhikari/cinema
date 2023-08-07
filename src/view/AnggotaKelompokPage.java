@@ -1,11 +1,16 @@
 package view;
 
+import javax.swing.JPanel;
+
 public class AnggotaKelompokPage extends javax.swing.JPanel {
+    MainWindow window;
 
     /**
      * Creates new form AnggotaKelompokPage
+     * @param window
      */
-    public AnggotaKelompokPage() {
+    public AnggotaKelompokPage(MainWindow window) {
+        this.window = window;
         initComponents();
     }
 
@@ -18,7 +23,7 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelAnggotaKelompok = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -40,26 +45,26 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
         setVerifyInputWhenFocusTarget(false);
         setLayout(new java.awt.CardLayout());
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelAnggotaKelompok.setPreferredSize(new java.awt.Dimension(1200, 800));
+        panelAnggotaKelompok.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Ariq.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
+        panelAnggotaKelompok.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Farid.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 130, -1, -1));
+        panelAnggotaKelompok.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 130, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Naufal.png"))); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, -1, -1));
+        panelAnggotaKelompok.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 470, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Adisya.png"))); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, -1, -1));
+        panelAnggotaKelompok.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 470, -1, -1));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Erwin.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 470, -1, -1));
+        panelAnggotaKelompok.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 470, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Marsya.png"))); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, 260));
+        panelAnggotaKelompok.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, 260));
 
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Right.png"))); // NOI18N
         btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -68,46 +73,60 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
                 btnNextMouseClicked(evt);
             }
         });
-        jPanel1.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 30, 80, 70));
+        panelAnggotaKelompok.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 30, 80, 70));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/10122254 ARIQ HIKARI HIDAYAT.png"))); // NOI18N
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 230, 60));
+        panelAnggotaKelompok.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 230, 60));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/10122256 MUHAMMAD FARID NURRAHMAN.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 380, 350, 60));
+        panelAnggotaKelompok.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 380, 350, 60));
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/10122260 ADISYA AINUN FATIHAH.png"))); // NOI18N
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 720, 270, 60));
+        panelAnggotaKelompok.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 720, 270, 60));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/10122264 MUHAMMAD NAUFAL GHIFARI.png"))); // NOI18N
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 720, 290, 60));
+        panelAnggotaKelompok.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 720, 290, 60));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/10122269 ERWIN HAFIZ TRIADI.png"))); // NOI18N
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 720, 210, 60));
+        panelAnggotaKelompok.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 720, 210, 60));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/10122241 MARSYA AWLIYA SABRINA.png"))); // NOI18N
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 270, 60));
+        panelAnggotaKelompok.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 270, 60));
 
         btnfq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fq.png"))); // NOI18N
-        jPanel1.add(btnfq, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, 70));
+        panelAnggotaKelompok.add(btnfq, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, 70));
 
         btnprev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Left.png"))); // NOI18N
-        jPanel1.add(btnprev, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 30, -1, -1));
+        btnprev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnprev.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnprevMouseClicked(evt);
+            }
+        });
+        panelAnggotaKelompok.add(btnprev, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 30, -1, -1));
 
         jLabelKelompok5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Kelompok 5 - Movie Cinema.png"))); // NOI18N
-        jPanel1.add(jLabelKelompok5, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 19, -1, 43));
+        panelAnggotaKelompok.add(jLabelKelompok5, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 19, -1, 43));
 
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-description.png"))); // NOI18N
-        jPanel1.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelAnggotaKelompok.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        add(jPanel1, "card2");
+        add(panelAnggotaKelompok, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseClicked
         // TODO add your handling code here:
-//        window.getWindowController().tampilHalamanBeranda(window);
+        window.getWindowController().tampilHalamanPenutup(window);
     }//GEN-LAST:event_btnNextMouseClicked
 
+    private void btnprevMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnprevMouseClicked
+        // TODO add your handling code here:
+        window.getWindowController().tampilHalamanBeranda(window);
+    }//GEN-LAST:event_btnprevMouseClicked
+
+    public JPanel getPanelAnggotaKelompok() {
+        return panelAnggotaKelompok;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnNext;
@@ -127,6 +146,6 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelBg;
     private javax.swing.JLabel jLabelKelompok5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel panelAnggotaKelompok;
     // End of variables declaration//GEN-END:variables
 }

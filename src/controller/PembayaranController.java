@@ -120,6 +120,7 @@ public class PembayaranController {
             model.insertTransaction(showtime);
             JOptionPane.showMessageDialog(window, "DATA TRANSACTION BERHASIL DISIMPAN");
             window.getWindowController().tampilHalamanDetailTiket(window, movie, showtime, transaction);            
+            window.getWindowController().clearTransaction();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(window, new Object[]{
                 "TERJADI ERROR DI DATABASE DENGAN PESAN ", ex.getMessage()
@@ -130,5 +131,16 @@ public class PembayaranController {
     public int generateRandomNumber(int min, int max) {
         Random random = new Random();
         return random.nextInt(max - min + 1) + min;
+    }
+    
+    public void clearData(PembayaranPage pembayaranPage) {
+        movie = null;
+        showtime = null;
+        transaction = null;
+        model.reset();
+        pembayaranPage.getTxtDetailPembelian().setText("");
+        pembayaranPage.getTxtTotalHarga().setText("");
+        pembayaranPage.getTxtTotalBayar().setText("");
+        pembayaranPage.getTxtKembalian().setText("");
     }
 }
