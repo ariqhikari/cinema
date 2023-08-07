@@ -74,7 +74,7 @@ public class PembayaranController {
         int kembalian = Integer.valueOf(pembayaranPage.getTxtTotalBayar().getText()) - transaction.getTotalPrice();
         
         if(kembalian < 0) {
-            JOptionPane.showMessageDialog(pembayaranPage, "TOTAL BAYAR TIDAK MENCUKUPI");
+            JOptionPane.showMessageDialog(pembayaranPage, "UANG TIDAK MENCUKUPI");
             return;
         } 
         
@@ -95,7 +95,7 @@ public class PembayaranController {
         int kembalian = Integer.valueOf(pembayaranPage.getTxtTotalBayar().getText()) - transaction.getTotalPrice();
         
         if(kembalian < 0) {
-            JOptionPane.showMessageDialog(pembayaranPage, "TOTAL BAYAR TIDAK MENCUKUPI");
+            JOptionPane.showMessageDialog(pembayaranPage, "UANG TIDAK MENCUKUPI");
             return;
         } 
         

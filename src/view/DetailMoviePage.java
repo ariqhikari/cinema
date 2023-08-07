@@ -112,6 +112,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jTextAreaDescription.setHighlighter(null);
         jTextAreaDescription.setEditable(false);
         jTextAreaDescription.setFocusable(false);
+        jTextAreaDescription.setHighlighter(null);
 
         panelDetailMovie.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 670, 300));
 

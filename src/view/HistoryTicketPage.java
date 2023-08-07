@@ -219,7 +219,7 @@ public class HistoryTicketPage extends javax.swing.JPanel {
                 JLabelNowPlayingMouseClicked(evt);
             }
         });
-        panelHistory.add(JLabelNowPlaying, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, 140, -1));
+        panelHistory.add(JLabelNowPlaying, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, 150, -1));
 
         jLabelMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon-menu.png"))); // NOI18N
         panelHistory.add(jLabelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 25, -1, -1));

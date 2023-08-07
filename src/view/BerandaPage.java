@@ -84,6 +84,7 @@ public class BerandaPage extends javax.swing.JPanel {
 
         jScrollPanelMovie.setBorder(null);
 
+        panelMovie.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelMovie.setPreferredSize(new java.awt.Dimension(100, 806));
 
         javax.swing.GroupLayout panelMovieLayout = new javax.swing.GroupLayout(panelMovie);
@@ -120,6 +121,7 @@ public class BerandaPage extends javax.swing.JPanel {
         panelBeranda.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         faqBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fq.png"))); // NOI18N
+        faqBtn.setToolTipText("About Us");
         faqBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         faqBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -129,15 +131,37 @@ public class BerandaPage extends javax.swing.JPanel {
         panelBeranda.add(faqBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 710, -1, -1));
 
         categoriesBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Category.png"))); // NOI18N
+        categoriesBtn.setToolTipText("Histori Tiket");
+        categoriesBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        categoriesBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                categoriesBtnMouseClicked(evt);
+            }
+        });
         panelBeranda.add(categoriesBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 710, -1, -1));
 
         ticketBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Ticket.png"))); // NOI18N
+        ticketBtn.setToolTipText("Pemesanan Tiket");
+        ticketBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ticketBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ticketBtnMouseClicked(evt);
+            }
+        });
         panelBeranda.add(ticketBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 720, -1, -1));
 
         profileButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/profile.png"))); // NOI18N
+        profileButton.setToolTipText("Informasi Akun");
+        profileButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        profileButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profileButtonMouseClicked(evt);
+            }
+        });
         panelBeranda.add(profileButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 710, -1, -1));
 
         homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/icon-home.png"))); // NOI18N
+        homeBtn.setToolTipText("Beranda");
         panelBeranda.add(homeBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 630, -1, -1));
 
         taskBar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-taskbar.png"))); // NOI18N
@@ -167,6 +191,18 @@ public class BerandaPage extends javax.swing.JPanel {
             window.getWindowController().tampilHalamanLogin(window);
         }
     }//GEN-LAST:event_jLabelLogoutMouseClicked
+
+    private void profileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileButtonMouseClicked
+        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN - (GM)Ariq");
+    }//GEN-LAST:event_profileButtonMouseClicked
+
+    private void ticketBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticketBtnMouseClicked
+        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN - (GM)Erwin");
+    }//GEN-LAST:event_ticketBtnMouseClicked
+
+    private void categoriesBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoriesBtnMouseClicked
+        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN - (GM)Naufal");
+    }//GEN-LAST:event_categoriesBtnMouseClicked
 
     public void loadDatabase() throws SQLException, MovieException, IOException {
         MovieDao dao = CinemaDB.getMovie();
