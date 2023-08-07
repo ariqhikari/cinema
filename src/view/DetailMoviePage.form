@@ -68,7 +68,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextAreaDescription.setBackground(new java.awt.Color(0,0,0,1));&#xa;jTextAreaDescription.setHighlighter(null);&#xa;jTextAreaDescription.setEditable(false);&#xa;jTextAreaDescription.setFocusable(false);&#xa;jTextAreaDescription.setHighlighter(null);"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextAreaDescription.setBackground(new java.awt.Color(0,0,0,1));&#xa;jTextAreaDescription.setHighlighter(null);&#xa;jTextAreaDescription.setEditable(false);&#xa;jTextAreaDescription.setFocusable(false);"/>
               </AuxValues>
             </Component>
           </SubComponents>
