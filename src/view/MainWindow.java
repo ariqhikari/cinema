@@ -112,12 +112,7 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
 
         txtPassword.setBackground(new java.awt.Color(109, 218, 247));
         txtPassword.setPreferredSize(new java.awt.Dimension(65, 25));
-        txtPassword.setRound(30);
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
+        txtPassword.setRound(20);
         panelLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 320, 60));
 
         panelBtnLogin.setBackground(new java.awt.Color(22, 55, 128));
@@ -206,10 +201,6 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
     private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
 
     /**
      * @param args the command line arguments
