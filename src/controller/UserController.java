@@ -4,10 +4,6 @@ import javax.swing.JOptionPane;
 import model.UserModel;
 import view.MainWindow;
 
-/**
- *
- * @author ariqhikari
- */
 public class UserController {
     private UserModel model;
 

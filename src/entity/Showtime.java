@@ -4,10 +4,6 @@ import java.time.LocalTime;
 import java.util.Map;
 import java.util.Objects;
 
-/**
- *
- * @author ariqhikari
- */
 public class Showtime {
     private Integer id;
     private Integer movieId;

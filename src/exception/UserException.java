@@ -1,9 +1,5 @@
 package exception;
 
-/**
- *
- * @author ariqhikari
- */
 public class UserException extends Exception {
     public UserException() {
         

@@ -2,10 +2,6 @@ package entity;
 
 import java.util.Objects;
 
-/**
- *
- * @author ariqhikari
- */
 public class User {
     private Integer id;
     private String name;

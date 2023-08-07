@@ -18,10 +18,6 @@ import view.MainWindow;
 import view.PembayaranPage;
 import view.SeatPage;
 
-/**
- *
- * @author ariqhikari
- */
 public class MainWindowController {
     private BerandaPage berandaPage;
     private DetailMoviePage detailMoviePage;

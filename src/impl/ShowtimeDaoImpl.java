@@ -12,10 +12,6 @@ import java.time.LocalTime;
 import org.json.JSONObject;
 import service.ShowtimeDao;
 
-/**
- *
- * @author ariqhikari
- */
 public class ShowtimeDaoImpl implements ShowtimeDao{
     private Connection connection;
     

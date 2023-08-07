@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package main;
 
 import database.CinemaDB;
@@ -17,15 +12,8 @@ import javax.swing.SwingUtilities;
 import service.MovieDao;
 import view.MainWindow;
 
-/**
- *
- * @author ariqhikari
- */
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) throws SQLException, MovieException {
 //        CinemaDB.getConnection();
 //        MovieDao dao = CinemaDB.getMovie();

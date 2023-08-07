@@ -12,10 +12,6 @@ import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicTextFieldUI;
 
-/**
- *
- * @author mfari
- */
 public class PasswordField extends JPasswordField {
     public int getRound() {
         return round;

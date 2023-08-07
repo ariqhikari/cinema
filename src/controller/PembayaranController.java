@@ -13,10 +13,6 @@ import model.TransactionModel;
 import view.MainWindow;
 import view.PembayaranPage;
 
-/**
- *
- * @author ariqhikari
- */
 public class PembayaranController {
     private Movie movie;
     private Showtime showtime;

@@ -16,10 +16,6 @@ import java.util.Objects;
 import org.json.JSONArray;
 import service.MovieDao;
 
-/**
- *
- * @author ariqhikari
- */
 public class MovieDaoImpl implements MovieDao {
     private Connection connection;
     

@@ -4,10 +4,6 @@ import controller.HistoryTicketController;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author mfari
- */
 public class HistoryTicketPage extends javax.swing.JPanel {
     MainWindow window;
     HistoryTicketController controller;

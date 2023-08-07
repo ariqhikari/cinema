@@ -4,10 +4,6 @@ import controller.DetailTiketController;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-/**
- *
- * @author erwin
- */
 public class DetailTiketPage extends javax.swing.JPanel {
     MainWindow window;
     DetailTiketController controller;

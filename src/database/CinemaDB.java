@@ -14,10 +14,6 @@ import service.ShowtimeDao;
 import service.TransactionDao;
 import service.UserDao;
 
-/**
- *
- * @author ariqhikari
- */
 public class CinemaDB {
     private static Connection connection;
     private static MovieDao movieDao;   
@@ -32,15 +28,15 @@ public class CinemaDB {
             
             // set nilai URL, username, dan password dari database
             // mac os
-            dataSource.setURL("jdbc:mysql://localhost:8889/cinema");
-            dataSource.setUser("root");
-            dataSource.setPassword("root");
+            // dataSource.setURL("jdbc:mysql://localhost:8889/cinema");
+            // dataSource.setUser("root");
+            // dataSource.setPassword("root");
             
             
             // windows
-            // dataSource.setURL("jdbc:mysql://localhost:3306/cinema");
-            // dataSource.setUser("root");
-            // dataSource.setPassword("");
+            dataSource.setURL("jdbc:mysql://localhost:3306/cinema4");
+            dataSource.setUser("root");
+            dataSource.setPassword("");
             
             // isi atribut connection
             connection = (Connection) dataSource.getConnection();

@@ -1,9 +1,5 @@
 package elements;
 
-/**
- *
- * @author MI AL ISHLAH
- */
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.GradientPaint;
@@ -24,10 +20,6 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
-/**
- *
- * @author oXCToo
- */
 public class PanelGradient extends JPanel {
 
     public Color kStartColor = Color.MAGENTA;

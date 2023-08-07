@@ -1,7 +1,5 @@
 package elements;
 
-
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,10 +12,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicTextFieldUI;
 
-/**
- *
- * @author MI AL ISHLAH
- */ 
 public class TextField extends JTextField {
 
     public int getRound() {

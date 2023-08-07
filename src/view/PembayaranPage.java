@@ -7,10 +7,6 @@ import event.TransactionListener;
 import javax.swing.JPanel;
 import model.TransactionModel;
 
-/**
- *
- * @author erwin
- */
 public class PembayaranPage extends javax.swing.JPanel implements TransactionListener{
     MainWindow window;
     TransactionModel model;

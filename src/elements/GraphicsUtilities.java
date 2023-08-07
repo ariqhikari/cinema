@@ -1,11 +1,5 @@
 package elements;
 
-
-
-/**
- *
- * @author MI AL ISHLAH
- */
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.Raster;

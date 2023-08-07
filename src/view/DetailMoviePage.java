@@ -17,10 +17,6 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-/**
- *
- * @author ariqhikari
- */
 public class DetailMoviePage extends javax.swing.JPanel {
     MainWindow window;
     DetailMovieController controller;

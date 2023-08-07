@@ -7,10 +7,6 @@ import exception.UserException;
 import java.sql.SQLException;
 import service.UserDao;
 
-/**
- *
- * @author ariqhikari
- */
 public class UserModel {
     private int id;
     private String name;

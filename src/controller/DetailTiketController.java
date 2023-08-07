@@ -19,10 +19,6 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import view.DetailTiketPage;
 
-/**
- *
- * @author ariqhikari
- */
 public class DetailTiketController {
     private Movie movie;
     private Showtime showtime;

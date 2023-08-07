@@ -11,10 +11,6 @@ import java.util.Locale;
 import model.UserModel;
 import view.HistoryTicketPage;
 
-/**
- *
- * @author ariqhikari
- */
 public class HistoryTicketController {
     private UserModel user;
     private Movie movie;

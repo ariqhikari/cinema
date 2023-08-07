@@ -3,10 +3,6 @@ package entity;
 import java.util.List;
 import java.util.Objects;
 
-/**
- *
- * @author ariqhikari
- */
 public class Transaction {
     private Integer id;
     private String transactionCode;

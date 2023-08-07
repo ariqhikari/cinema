@@ -20,10 +20,6 @@ import javax.swing.JOptionPane;
 import view.MainWindow;
 import view.SeatPage;
 
-/**
- *
- * @author ariqhikari
- */
 public class SeatController {
     private Movie movie;
     private Showtime showtime;

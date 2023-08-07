@@ -4,10 +4,6 @@ import entity.Movie;
 import java.time.LocalTime;
 import view.MainWindow;
 
-/**
- *
- * @author ariqhikari
- */
 public class DetailMovieController {
     private Movie movie;
 

@@ -1,9 +1,5 @@
 package exception;
 
-/**
- *
- * @author ariqhikari
- */
 public class MovieException extends Exception {
     public MovieException() {
         

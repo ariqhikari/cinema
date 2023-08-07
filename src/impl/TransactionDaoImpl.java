@@ -13,10 +13,6 @@ import java.util.Objects;
 import org.json.JSONArray;
 import service.TransactionDao;
 
-/**
- *
- * @author ariqhikari
- */
 public class TransactionDaoImpl implements TransactionDao {
     private Connection connection;
     

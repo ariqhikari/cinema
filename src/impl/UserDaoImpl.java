@@ -9,10 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import service.UserDao;
 
-/**
- *
- * @author ariqhikari
- */
 public class UserDaoImpl implements UserDao {
     private Connection connection;
     

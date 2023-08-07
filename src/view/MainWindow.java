@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import controller.MainWindowController;
@@ -15,10 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import model.UserModel;
 
-/**
- *
- * @author ariqhikari
- */
 public class MainWindow extends javax.swing.JFrame implements UserListener {
     private MainWindowController windowController;
     private UserModel model;
@@ -98,6 +89,8 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         panelLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtUsername.setBackground(new java.awt.Color(109, 218, 247));
+        txtUsername.setForeground(new java.awt.Color(255, 255, 255));
+        txtUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtUsername.setPreferredSize(new java.awt.Dimension(65, 25));
         txtUsername.setRound(30);
         txtUsername.setShadowColor(new java.awt.Color(141, 225, 243));
@@ -109,6 +102,8 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         panelLogin.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 320, 60));
 
         txtPassword.setBackground(new java.awt.Color(109, 218, 247));
+        txtPassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtPassword.setPreferredSize(new java.awt.Dimension(65, 25));
         txtPassword.setRound(20);
         panelLogin.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 400, 320, 60));
@@ -183,9 +178,9 @@ public class MainWindow extends javax.swing.JFrame implements UserListener {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsernameActionPerformed
 
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    }                                           
 
     /**
      * @param args the command line arguments

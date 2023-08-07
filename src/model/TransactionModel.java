@@ -11,10 +11,6 @@ import java.util.List;
 import service.ShowtimeDao;
 import service.TransactionDao;
 
-/**
- *
- * @author ariqhikari
- */
 public class TransactionModel {
     private Integer id;
     private String transactionCode;

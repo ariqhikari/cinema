@@ -8,10 +8,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-/**
- *
- * @author ariqhikari
- */
 public class Movie {
     private Integer id;
     private String title;
