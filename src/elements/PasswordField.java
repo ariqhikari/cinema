@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package elements;
 
 import java.awt.Color;
@@ -43,7 +47,7 @@ public class PasswordField extends JPasswordField {
     private final Insets shadowSize = new Insets(2, 5, 8, 5);
 
     public PasswordField() {
-        setUI(new TextUI());
+//        setUI(new TextUI());
         setOpaque(false);
         setForeground(new Color(80, 80, 80));
         setSelectedTextColor(new Color(255, 255, 255));
