@@ -22,7 +22,7 @@ public class DetailTiketPage extends javax.swing.JPanel {
         
         initComponents();
     }
-
+    
     public DetailTiketController getController() {
         return controller;
     }

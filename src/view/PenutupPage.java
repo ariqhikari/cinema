@@ -27,8 +27,8 @@ public class PenutupPage extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnprev = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabelBg = new javax.swing.JLabel();
 
@@ -37,15 +37,15 @@ public class PenutupPage extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1200, 800));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Fotbar.png"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
+        btnprev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Left.png"))); // NOI18N
+        jPanel1.add(btnprev, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, -1, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Kelompok 5 - Movie Cinema.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 19, -1, 43));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Group 5.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel3.setText("Five Cinema");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 720, -1, -1));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/5desc.png"))); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, 290, 590));
 
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-description.png"))); // NOI18N
         jPanel1.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -55,8 +55,8 @@ public class PenutupPage extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnprev;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabelBg;
     private javax.swing.JPanel jPanel1;
