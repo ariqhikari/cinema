@@ -109,6 +109,7 @@ public class BerandaPage extends javax.swing.JPanel {
         jScrollPanelMovie.setOpaque(false);
 
         jLabelLogout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logout.png"))); // NOI18N
+        jLabelLogout.setToolTipText("Logout");
         jLabelLogout.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabelLogout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -102,6 +102,7 @@ public class DetailTiketPage extends javax.swing.JPanel {
         panelDetailTiket.add(jLabelTitleMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
 
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Right.png"))); // NOI18N
+        btnNext.setToolTipText("Next");
         btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNext.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

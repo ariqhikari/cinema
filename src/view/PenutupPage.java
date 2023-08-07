@@ -35,6 +35,7 @@ public class PenutupPage extends javax.swing.JPanel {
         panelPenutup.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnprev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Left.png"))); // NOI18N
+        btnprev.setToolTipText("Back");
         btnprev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnprev.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

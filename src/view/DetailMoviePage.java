@@ -112,11 +112,13 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jTextAreaDescription.setHighlighter(null);
         jTextAreaDescription.setEditable(false);
         jTextAreaDescription.setFocusable(false);
-        jTextAreaDescription.setHighlighter(null);
+        jTextAreaDescription.setEnabled(false);
+        jTextAreaDescription.setFocusable(false);
 
         panelDetailMovie.add(jScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 670, 300));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
+        btnBack.setToolTipText("Back");
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

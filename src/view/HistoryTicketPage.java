@@ -213,6 +213,7 @@ public class HistoryTicketPage extends javax.swing.JPanel {
         JLabelNowPlaying.setFont(new java.awt.Font("SansSerif", 0, 20)); // NOI18N
         JLabelNowPlaying.setForeground(new java.awt.Color(255, 255, 255));
         JLabelNowPlaying.setText("NOW PLAYING");
+        JLabelNowPlaying.setToolTipText("Back to Beranda");
         JLabelNowPlaying.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         JLabelNowPlaying.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

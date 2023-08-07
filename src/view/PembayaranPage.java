@@ -68,6 +68,7 @@ public class PembayaranPage extends javax.swing.JPanel implements TransactionLis
         panelPembayaran.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
+        btnBack.setToolTipText("Back");
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -126,6 +127,7 @@ public class PembayaranPage extends javax.swing.JPanel implements TransactionLis
         txtTunai.setEditable(false);
 
         panelHitung.setBackground(new java.awt.Color(251, 99, 199));
+        panelHitung.setToolTipText("Hitung");
         panelHitung.setRoundBottomLeft(40);
         panelHitung.setRoundBottomRight(40);
         panelHitung.setRoundTopLeft(40);
@@ -162,6 +164,7 @@ public class PembayaranPage extends javax.swing.JPanel implements TransactionLis
         panelPembayaran.add(jLabelTotalHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, 60));
 
         panelPrintTiket.setBackground(new java.awt.Color(251, 99, 199));
+        panelPrintTiket.setToolTipText("Print Tiket");
         panelPrintTiket.setRoundBottomLeft(40);
         panelPrintTiket.setRoundBottomRight(40);
         panelPrintTiket.setRoundTopLeft(40);

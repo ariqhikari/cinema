@@ -115,6 +115,7 @@ public class SeatPage extends javax.swing.JPanel {
         panelSeat.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
+        btnBack.setToolTipText("Back");
         btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnBack.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -444,6 +445,7 @@ public class SeatPage extends javax.swing.JPanel {
         panelSeat.add(keranjangMerah, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 760, -1, -1));
 
         buyBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Buy button.png"))); // NOI18N
+        buyBtn.setToolTipText("Buy");
         buyBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buyBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

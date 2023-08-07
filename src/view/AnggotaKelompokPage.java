@@ -67,6 +67,7 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
         panelAnggotaKelompok.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, 260));
 
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Right.png"))); // NOI18N
+        btnNext.setToolTipText("Next");
         btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnNext.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -97,6 +98,7 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
         panelAnggotaKelompok.add(btnfq, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, 70));
 
         btnprev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Left.png"))); // NOI18N
+        btnprev.setToolTipText("Back");
         btnprev.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnprev.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

@@ -68,7 +68,7 @@
                 </Property>
               </Properties>
               <AuxValues>
-                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextAreaDescription.setBackground(new java.awt.Color(0,0,0,1));&#xa;jTextAreaDescription.setHighlighter(null);&#xa;jTextAreaDescription.setEditable(false);&#xa;jTextAreaDescription.setFocusable(false);&#xa;jTextAreaDescription.setHighlighter(null);"/>
+                <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jTextAreaDescription.setBackground(new java.awt.Color(0,0,0,1));&#xa;jTextAreaDescription.setHighlighter(null);&#xa;jTextAreaDescription.setEditable(false);&#xa;jTextAreaDescription.setFocusable(false);&#xa;jTextAreaDescription.setEnabled(false);&#xa;jTextAreaDescription.setFocusable(false);"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -78,6 +78,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/assets/back.png"/>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Back"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
