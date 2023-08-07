@@ -113,7 +113,6 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jTextAreaDescription.setWrapStyleWord(true);
         jTextAreaDescription.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextAreaDescription.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        jTextAreaDescription.setSelectedTextColor(new java.awt.Color(255, 255, 255));
         jTextAreaDescription.setSelectionColor(new java.awt.Color(255, 255, 255));
         jScrollPane.setViewportView(jTextAreaDescription);
         jTextAreaDescription.setBackground(new java.awt.Color(0,0,0,1));
@@ -562,7 +561,7 @@ public class DetailMoviePage extends javax.swing.JPanel {
         jTextAreaDescription.setText(controller.getMovie().getDescription());
         jLabelRating.setText(Double.toString(controller.getMovie().getRating()));
         
-        // poster
+//        // poster
         BufferedImage icon = ImageIO.read(getClass().getResource(controller.getMovie().getPoster()));              
         BufferedImage roundedPosterImage = makeRoundedCorner(icon, 20);
         Image scaledPoster = roundedPosterImage.getScaledInstance(250, 280, Image.SCALE_SMOOTH);

@@ -4,18 +4,29 @@
  */
 package view;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author erwin
  */
 public class DetailTiketPage extends javax.swing.JPanel {
 
+    MainWindow window;
+
+
     /**
      * Creates new form DetailTiketView
+     * @param window
      */
-    public DetailTiketPage() {
+//    public DetailTiketPage() {
+
+    public DetailTiketPage(MainWindow window) {
+        this.window = window;
         initComponents();
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,7 +37,7 @@ public class DetailTiketPage extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        panelDetailTiket = new javax.swing.JPanel();
         jLabelNomorOrder = new javax.swing.JLabel();
         jLabelPoster = new javax.swing.JLabel();
         LabelStudio = new javax.swing.JLabel();
@@ -46,60 +57,60 @@ public class DetailTiketPage extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelDetailTiket.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelNomorOrder.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         jLabelNomorOrder.setForeground(new java.awt.Color(252, 255, 116));
         jLabelNomorOrder.setText("1654861705810980864");
-        jPanel1.add(jLabelNomorOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 730, -1, -1));
+        panelDetailTiket.add(jLabelNomorOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 730, -1, -1));
 
         jLabelPoster.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/poster-movie.jpeg"))); // NOI18N
-        jPanel1.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
+        panelDetailTiket.add(jLabelPoster, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         LabelStudio.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         LabelStudio.setForeground(new java.awt.Color(255, 255, 255));
         LabelStudio.setText("UNIKOM MALL, REGULAR, STUDIO 5");
-        jPanel1.add(LabelStudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
+        panelDetailTiket.add(LabelStudio, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
         jLabelJumlahTiket.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabelJumlahTiket.setForeground(new java.awt.Color(59, 131, 198));
         jLabelJumlahTiket.setText("2 tiket");
-        jPanel1.add(jLabelJumlahTiket, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, -1, -1));
+        panelDetailTiket.add(jLabelJumlahTiket, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 570, -1, -1));
 
         jLabelKursi.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabelKursi.setForeground(new java.awt.Color(198, 59, 59));
         jLabelKursi.setText("E5, E6");
-        jPanel1.add(jLabelKursi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 220, -1));
+        panelDetailTiket.add(jLabelKursi, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, 220, -1));
 
         jLabelDateTime.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabelDateTime.setForeground(new java.awt.Color(255, 255, 255));
         jLabelDateTime.setText("19 Juli 2023 10:00");
-        jPanel1.add(jLabelDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, -1));
+        panelDetailTiket.add(jLabelDateTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, -1));
 
         LabelFiveCinema.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         LabelFiveCinema.setForeground(new java.awt.Color(255, 255, 255));
         LabelFiveCinema.setText("Five Cinema");
-        jPanel1.add(LabelFiveCinema, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
+        panelDetailTiket.add(LabelFiveCinema, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
 
         LabelKodeBooking.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         LabelKodeBooking.setForeground(new java.awt.Color(59, 131, 198));
         LabelKodeBooking.setText("Kode Booking");
-        jPanel1.add(LabelKodeBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, -1));
+        panelDetailTiket.add(LabelKodeBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 510, -1, -1));
 
         jLabelKodeBooking.setFont(new java.awt.Font("SansSerif", 0, 24)); // NOI18N
         jLabelKodeBooking.setForeground(new java.awt.Color(198, 59, 59));
         jLabelKodeBooking.setText("99883");
-        jPanel1.add(jLabelKodeBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, 220, -1));
+        panelDetailTiket.add(jLabelKodeBooking, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, 220, -1));
 
         jLabelTitleMovie.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         jLabelTitleMovie.setForeground(new java.awt.Color(252, 255, 116));
         jLabelTitleMovie.setText("Barbie");
-        jPanel1.add(jLabelTitleMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
+        panelDetailTiket.add(jLabelTitleMovie, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
 
         LabelNomorOrder.setFont(new java.awt.Font("SansSerif", 1, 32)); // NOI18N
         LabelNomorOrder.setForeground(new java.awt.Color(252, 255, 116));
         LabelNomorOrder.setText("NOMOR ORDER");
-        jPanel1.add(LabelNomorOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 730, -1, -1));
+        panelDetailTiket.add(LabelNomorOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 730, -1, -1));
 
         btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Right.png"))); // NOI18N
         btnNext.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -108,21 +119,21 @@ public class DetailTiketPage extends javax.swing.JPanel {
                 btnNextMouseClicked(evt);
             }
         });
-        jPanel1.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
+        panelDetailTiket.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 30, -1, -1));
 
         logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/logo.png"))); // NOI18N
-        jPanel1.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        panelDetailTiket.add(logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         labelPutih.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Rectangle 745 (1).png"))); // NOI18N
-        jPanel1.add(labelPutih, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 1100, 230));
+        panelDetailTiket.add(labelPutih, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 1100, 230));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/iconCopy.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 730, 50, 50));
+        panelDetailTiket.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 730, 50, 50));
 
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-description.png"))); // NOI18N
-        jPanel1.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        panelDetailTiket.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        add(jPanel1, "card2");
+        add(panelDetailTiket, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNextMouseClicked
@@ -130,6 +141,9 @@ public class DetailTiketPage extends javax.swing.JPanel {
 //        window.getWindowController().tampilHalamanBeranda(window);
     }//GEN-LAST:event_btnNextMouseClicked
 
+    public JPanel getPanelDetailTiket() {
+        return panelDetailTiket;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel LabelFiveCinema;
@@ -146,8 +160,8 @@ public class DetailTiketPage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelNomorOrder;
     private javax.swing.JLabel jLabelPoster;
     private javax.swing.JLabel jLabelTitleMovie;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelPutih;
     private javax.swing.JLabel logo;
+    private javax.swing.JPanel panelDetailTiket;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,6 +1,7 @@
 package impl;
 
-//import com.mysql.jdbc.Connection;
+//import com.mysql.jdbc.Connection;  //untuk mysql neatbeans 8.2
+//import java.sql.Connection;
 import entity.User;
 import exception.UserException;
 import java.sql.Connection;
@@ -39,7 +40,7 @@ public class UserDaoImpl implements UserDao {
             User user = null;
             // buat validasi untuk mengecek apakah ada record
             if(result.next()) {
-                // set hasil query ke object anggota
+                // set hasil query ke object user
                 user = new User();
                 user.setId(result.getInt("id"));
                 user.setName(result.getString("name"));

@@ -69,12 +69,9 @@ public class UserModel {
     
     public void loginUser() throws SQLException, UserException {
         UserDao dao = CinemaDB.getUser();
-        User user = new User();
         
-        user.setUsername(this.username);
-        user.setPassword(this.password); 
-        
-        dao.getUser(this.username, this.password);
+        User user = dao.getUser(this.username, this.password);
+        this.setId(user.getId());
     }
     
     protected void fireOnChange() {

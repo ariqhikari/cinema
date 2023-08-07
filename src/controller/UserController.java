@@ -31,7 +31,7 @@ public class UserController {
             
             try {
                 model.loginUser();
-                model.resetUser();
+//                model.resetUser();
                 isLogin = true;
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(view, new Object[]{

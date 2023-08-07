@@ -34,7 +34,6 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnNext = new javax.swing.JLabel();
-        btnBack1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -42,6 +41,8 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnfq = new javax.swing.JLabel();
+        btnprev = new javax.swing.JLabel();
+        jLabelKelompok5 = new javax.swing.JLabel();
         jLabelBg = new javax.swing.JLabel();
 
         setVerifyInputWhenFocusTarget(false);
@@ -75,16 +76,7 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
                 btnNextMouseClicked(evt);
             }
         });
-        jPanel1.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 20, 80, 80));
-
-        btnBack1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
-        btnBack1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBack1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnBack1MouseClicked(evt);
-            }
-        });
-        jPanel1.add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 20, 90, 80));
+        jPanel1.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 30, 80, 70));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/10122254 ARIQ HIKARI HIDAYAT.png"))); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 230, 60));
@@ -107,6 +99,12 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
         btnfq.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fq.png"))); // NOI18N
         jPanel1.add(btnfq, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 60, 70));
 
+        btnprev.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Arrow Left.png"))); // NOI18N
+        jPanel1.add(btnprev, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 30, -1, -1));
+
+        jLabelKelompok5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Kelompok 5 - Movie Cinema.png"))); // NOI18N
+        jPanel1.add(jLabelKelompok5, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 19, -1, 43));
+
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-description.png"))); // NOI18N
         jPanel1.add(jLabelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -118,15 +116,11 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
 //        window.getWindowController().tampilHalamanBeranda(window);
     }//GEN-LAST:event_btnNextMouseClicked
 
-    private void btnBack1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBack1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBack1MouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnBack1;
     private javax.swing.JLabel btnNext;
     private javax.swing.JLabel btnfq;
+    private javax.swing.JLabel btnprev;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -140,6 +134,7 @@ public class AnggotaKelompokPage extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelBg;
+    private javax.swing.JLabel jLabelKelompok5;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
