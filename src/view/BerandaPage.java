@@ -194,15 +194,15 @@ public class BerandaPage extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabelLogoutMouseClicked
 
     private void profileButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profileButtonMouseClicked
-        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN - (GM)Ariq");
+        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN");
     }//GEN-LAST:event_profileButtonMouseClicked
 
     private void ticketBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ticketBtnMouseClicked
-        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN - (GM)Erwin");
+        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN");
     }//GEN-LAST:event_ticketBtnMouseClicked
 
     private void categoriesBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoriesBtnMouseClicked
-        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN - (GM)Naufal");
+        JOptionPane.showMessageDialog(this, "FITUR SEDANG DALAM TAHAP PENGEMBANGAN");
     }//GEN-LAST:event_categoriesBtnMouseClicked
 
     public void loadDatabase() throws SQLException, MovieException, IOException {

@@ -48,7 +48,7 @@ public class PenutupPage extends javax.swing.JPanel {
         panelPenutup.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/5desc.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/Anggota Kelompok.png"))); // NOI18N
         panelPenutup.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, 290, 590));
 
         jLabelBg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg-description.png"))); // NOI18N
